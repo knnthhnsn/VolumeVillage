@@ -1,0 +1,442 @@
+/* Kunstner Side Specifikke Stilarter */
+
+/* Header */
+.artist-header {
+    background-color: transparent;
+    padding: 20px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 2000;
+}
+
+.artist-header .menu-toggle {
+    position: relative;
+    z-index: 2001;
+}
+
+.artist-header .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 20px;
+    max-width: 100%;
+    padding: 0 40px;
+    width: 100%;
+}
+
+.header-title-wrapper {
+    flex: 1;
+    text-align: left;
+    margin-left: 20px;
+}
+
+.header-title {
+    font-family: 'Silver Forte Grunge', var(--font-heading);
+    font-size: 2.5rem;
+    color: var(--accent-orange);
+    line-height: 1;
+    text-transform: uppercase;
+    transform: rotate(-2deg);
+    /* Grungy hældning */
+    display: inline-block;
+}
+
+.artist-nav {
+    display: flex;
+    gap: 15px;
+}
+
+.artist-nav a {
+    color: var(--text-white);
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 5px 10px;
+    border: 1px solid transparent;
+    transition: all 0.3s;
+}
+
+.artist-nav a:hover {
+    color: var(--accent-orange);
+    border-color: var(--accent-orange);
+}
+
+
+/* Hero Section */
+.artist-hero {
+    padding: 80px 0;
+    min-height: 80vh;
+    /* Sikr at det tager lodret plads */
+    display: flex;
+    align-items: center;
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    /* Tæt mellemrum for "kort" look */
+    background-color: #f0f0f0;
+    /* Papir-agtig baggrund */
+    box-shadow: 10px 10px 0px var(--bg-dark);
+}
+
+.hero-image-col {
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    min-height: 500px;
+}
+
+.hero-image-col img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: sepia(20%) contrast(110%);
+}
+
+.hero-info-col {
+    padding: 40px;
+    background-image: url('../assets/images/concrete-texture.png');
+    /* Fallback/Antag eksisterer eller bare farve */
+    background-color: #e0e0e0;
+    color: #121212;
+    /* Mørk tekst på lys baggrund */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+
+/* Tekstur overlay for info kolonne */
+.hero-info-col::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient(45deg,
+            transparent,
+            transparent 10px,
+            rgba(0, 0, 0, 0.05) 10px,
+            rgba(0, 0, 0, 0.05) 12px);
+    pointer-events: none;
+}
+
+.artist-title-large {
+    font-family: 'Simple Grunge', var(--font-heading);
+    font-size: 4rem;
+    color: var(--accent-orange);
+    margin-bottom: 20px;
+    text-shadow: 3px 3px 0px #fff;
+    mix-blend-mode: multiply;
+}
+
+.artist-bio {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    margin-bottom: 20px;
+    line-height: 1.6;
+    color: #333;
+    font-weight: 500;
+}
+
+.genre-tags {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.genre-tag {
+    background: #121212;
+    color: #fff;
+    padding: 5px 12px;
+    font-family: var(--font-heading);
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    transform: skew(-10deg);
+}
+
+.music-player-placeholder {
+    background: #000;
+    padding: 20px;
+    border-radius: 5px;
+    color: #fff;
+    margin-top: auto;
+}
+
+.music-player-placeholder iframe {
+    width: 100%;
+    height: 152px;
+    border: none;
+}
+
+
+/* Program Sektion */
+.program-section {
+    padding: 100px 0;
+    background-color: #e6e6e6;
+    /* Lysegrå sektion */
+    color: #121212;
+    position: relative;
+}
+
+/* Genbrug omrids skribleri via pseudo elementer muligt, eller bare stil */
+.program-title {
+    text-align: center;
+    font-size: 4rem;
+    color: var(--accent-orange);
+    font-family: 'Silver Forte Grunge', var(--font-heading);
+    margin-bottom: 10px;
+}
+
+.program-subtitle {
+    text-align: center;
+    font-family: var(--font-heading);
+    text-transform: uppercase;
+    margin-bottom: 50px;
+    letter-spacing: 2px;
+}
+
+.timeline {
+    max-width: 900px;
+    margin: 0 auto;
+    border-top: 2px solid var(--accent-orange);
+}
+
+.timeline-row {
+    display: grid;
+    grid-template-columns: 100px 1fr 150px;
+    border-bottom: 1px solid #ccc;
+    padding: 20px 0;
+    align-items: center;
+}
+
+.time {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.event-details {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.event-name {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.event-tag {
+    font-size: 0.8rem;
+    background: #ccc;
+    padding: 2px 6px;
+    border: 1px solid #999;
+}
+
+.buy-btn-small {
+    background: var(--accent-orange);
+    color: #fff;
+    padding: 8px 16px;
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    border: none;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-align: center;
+}
+
+.buy-btn-small:hover {
+    background: #000;
+}
+
+
+/* Billet CTA Sektion */
+.ticket-section {
+    padding: 100px 0;
+    background-color: var(--bg-dark);
+    text-align: center;
+    background-image: url('../assets/images/grunge-texture-dark.png');
+    background-blend-mode: overlay;
+}
+
+.ticket-title {
+    font-size: 3.5rem;
+    color: var(--accent-orange);
+    font-family: 'Silver Forte Grunge', var(--font-heading);
+    margin-bottom: 15px;
+}
+
+.ticket-desc {
+    color: var(--text-white);
+    margin-bottom: 30px;
+    font-family: var(--font-heading);
+    letter-spacing: 1px;
+}
+
+/* Tidligere Shows Sektion */
+.earlier-shows-section {
+    padding: 100px 0;
+    background-color: #f5f5f5;
+    /* Lys igen */
+    color: #121212;
+}
+
+.earlier-shows-title {
+    text-align: center;
+    font-family: 'Silver Forte Grunge', var(--font-heading);
+    color: var(--accent-orange);
+    font-size: 3rem;
+    margin-bottom: 40px;
+}
+
+.show-display {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+}
+
+.show-image img {
+    width: 100%;
+    height: auto;
+    filter: grayscale(100%);
+    transition: filter 0.3s;
+}
+
+.show-image img:hover {
+    filter: grayscale(0%);
+}
+
+.show-info {
+    font-family: var(--font-body);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+@media (max-width: 768px) {
+    .show-display {
+        grid-template-columns: 1fr;
+    }
+
+    .show-image {
+        margin-bottom: 20px;
+    }
+}
+
+
+/* FAQ Sektion */
+.faq-section {
+    padding: 100px 0;
+    background-color: var(--bg-dark);
+    color: #fff;
+}
+
+.faq-title {
+    font-family: 'Silver Forte Grunge', var(--font-heading);
+    font-size: 3rem;
+    color: var(--accent-orange);
+    margin-bottom: 40px;
+}
+
+.accordion {
+    max-width: 800px;
+}
+
+.accordion-item {
+    border-bottom: 1px solid #444;
+    padding: 20px 0;
+}
+
+.accordion-header {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--font-heading);
+    color: var(--accent-orange);
+    font-size: 1.2rem;
+    transition: color 0.3s;
+}
+
+.accordion-header:hover {
+    color: #fff;
+}
+
+.accordion-content {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: all 0.3s ease-out;
+    margin-top: 10px;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: #ccc;
+}
+
+.accordion-content.active {
+    max-height: 200px;
+    /* Vilkårlig buffer */
+    opacity: 1;
+}
+
+/* Responsiv */
+@media (max-width: 768px) {
+    .hero-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-image-col {
+        min-height: 300px;
+    }
+
+    .timeline-row {
+        grid-template-columns: 80px 1fr;
+        grid-gap: 10px;
+    }
+
+    .buy-btn-small {
+        grid-column: 1 / -1;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .timeline-row {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 15px;
+    }
+
+    .time,
+    .event-details,
+    .buy-btn-small {
+        justify-content: center;
+        text-align: center;
+        display: block;
+    }
+
+    .event-details {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .header-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .header-title-wrapper {
+        margin-left: 0;
+        margin-bottom: 10px;
+    }
+}

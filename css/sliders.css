@@ -1,0 +1,311 @@
+/* Sliders & Kort Stilarter */
+
+/* Event Slider */
+.events-section {
+    overflow: hidden;
+    padding: 100px 0;
+    background-color: var(--bg-dark);
+    /* Brug bg-dark som base */
+    position: relative;
+    /* Kontekst for overlay */
+}
+
+/* Grunge Baggrundslag (50% Opacitet) */
+.events-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    /* Overlay --bg-dark (#24201A) på billedet */
+    background-image: linear-gradient(rgba(36, 32, 26, 0.8), rgba(36, 32, 26, 0.8)), url('../assets/images/grunge-grid-baggrund.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.5;
+    z-index: 0;
+}
+
+/* Doodle Overlay (20% Opacitet, Fuld Skærm) */
+.events-section::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background-image: url('../assets/images/doodle.webp');
+    background-size: cover;
+    /* Fuld skærm */
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.2;
+    /* 20% opacitet */
+    z-index: 0;
+    /* Stabler med ::before */
+    pointer-events: none;
+}
+
+.gallery-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: var(--bg-light);
+    /* Brug --bg-light variabel */
+    opacity: 0.9;
+    /* 90% opacitet */
+    z-index: 0;
+}
+
+.events-section>.container,
+.gallery-section>.container {
+    position: relative;
+    z-index: 1;
+    /* Indhold over overlay */
+}
+
+.slider-container,
+.gallery-slider-wrapper {
+    position: relative;
+    width: 100%;
+    z-index: 1;
+    /* Sikre at sliders er over overlay */
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.slider-track {
+    display: flex;
+    gap: 30px;
+    overflow-x: auto;
+    /* Smart polstring for at justere med gitter men scrolle fuld bredde */
+    padding: 40px var(--gutter) 20px 40px;
+    scroll-padding-left: 40px;
+    /* Sikrer at snap-punkt respekterer polstring */
+    /* Mere top polstring (40px) for at håndtere hover løft */
+    /* Tilføj top polstring for klistermærker */
+    padding-bottom: 20px;
+    /* Scroll snap */
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    /* Skjul rullebar for renere look */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.slider-track::-webkit-scrollbar {
+    display: none;
+}
+
+.event-card {
+    min-width: 300px;
+    width: 300px;
+    margin-left: 15px;
+    /* Ekstra buffer */
+    flex-shrink: 0;
+    background: #1a1a1a;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    scroll-snap-align: start;
+    box-shadow: 5px 5px 0px var(--accent-orange);
+    position: relative;
+    overflow: visible;
+    border: 2px solid transparent;
+    /* Forbered til fremhævning */
+    /* Sikr at klistermærke ikke beskæres */
+}
+
+@media (max-width: 768px) {
+    .event-card {
+        min-width: 260px;
+        width: 260px;
+    }
+}
+
+.event-card:hover {
+    transform: translateY(-5px);
+}
+
+.card-image-wrapper {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+}
+
+.card-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.event-card:hover .card-image-wrapper img {
+    transform: scale(1.1);
+}
+
+.date-badge {
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    background-image: url('../assets/images/dato-sticker.webp');
+    background-size: cover;
+    background-color: transparent;
+    color: var(--text-white);
+    font-family: 'Simple Grunge', var(--font-heading);
+    padding: 10px;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    line-height: 1;
+    line-height: 1;
+    text-align: center;
+    z-index: 10;
+}
+
+.card-content {
+    padding: 20px;
+
+}
+
+.tag {
+    font-size: 0.8rem;
+    color: #888;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-bottom: 5px;
+    border: 1px solid var(--accent-orange);
+    padding: 2px 5px;
+}
+
+.artist-name {
+    font-family: 'Simple Grunge', var(--font-heading);
+    font-size: 1.8rem;
+    color: #fff;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.star-icon {
+    color: transparent;
+    -webkit-text-stroke: 1px var(--accent-orange);
+    font-size: 1.2rem;
+}
+
+.event-desc {
+    font-size: 0.9rem;
+    color: #ccc;
+    margin-bottom: 15px;
+}
+
+.card-link {
+    color: var(--accent-orange);
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Galleri Slider */
+.gallery-section {
+    background-color: var(--bg-dark);
+    /* Behold base baggrund */
+    background-image: url('../assets/images/dots.webp');
+    /* Ændret til dots.webp */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 100px 0;
+    position: relative;
+    /* Kontekst for overlay */
+}
+
+.gallery-track {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    overflow-x: auto;
+    padding: 10px var(--gutter) 10px var(--gutter);
+    scroll-behavior: smooth;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.gallery-track::-webkit-scrollbar {
+    display: none;
+}
+
+.gallery-track a {
+    display: block;
+    height: 400px;
+    /* Ensure link takes full height of image */
+    flex-shrink: 0;
+}
+
+.gallery-track img {
+    height: 100%;
+    /* Billede fylder ankeret */
+    width: auto;
+    cursor: pointer;
+}
+
+/* Slider Controls */
+.slider-controls {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+    padding-right: max(20px, calc((100% - var(--container-width)) / 2 + 20px));
+    /* Juster med margin/gitter */
+}
+
+.slider-btn {
+    background-color: transparent;
+    border: 2px solid var(--accent-orange);
+    color: var(--accent-orange);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-heading);
+}
+
+.slider-btn:hover {
+    background-color: var(--accent-orange);
+    color: var(--text-white);
+    transform: scale(1.1);
+}
+
+.slider-btn.random-btn {
+    width: auto;
+    padding: 0 20px;
+    border-radius: 30px;
+    /* Pille form */
+    font-size: 1rem;
+}
+
+.gallery-controls {
+    position: absolute;
+    bottom: 20px;
+    right: max(20px, calc((100% - var(--container-width)) / 2 + 20px));
+    z-index: 10;
+}
+
+/* Juster galleri slider indpakning for kontroller */
+/* .gallery-slider-wrapper regel flyttet til top med .slider-container */

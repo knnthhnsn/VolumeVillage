@@ -1,0 +1,38 @@
+#global-icon-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    /* Høj z-index for at sidde ovenpå sektioner */
+    overflow: hidden;
+}
+
+.bg-icon {
+    position: absolute;
+    opacity: 0.8;
+    /* Øget opacitet */
+    height: auto;
+    /* Fjernet gråtone for at se originale farver eller svg fyld */
+    /* Fjernet blend mode som måske skjuler dem på mørke baggrunde */
+    transition: transform 0.3s ease;
+    z-index: 1;
+    /* Sikr at de er over den absolutte baggrundscontainer men under tekst hvis muligt. Forælder har z-index 0. */
+}
+
+/* Valgfrit: Let svæve animation */
+@keyframes floatIcon {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-20px) rotate(5deg);
+    }
+
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+}

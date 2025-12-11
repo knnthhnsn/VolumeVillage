@@ -1,0 +1,183 @@
+/* Footer & Nyhedsbrev Stilarter */
+
+/* CTA Sektion */
+.cta-section {
+    padding: 80px 0;
+    position: relative;
+}
+
+/* Doodle/Tekstur Overlay skiftet til Nyhedsbrev */
+
+.cta-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+.cta-title {
+    font-family: 'Silver Forte Grunge', var(--font-heading);
+    font-size: 4rem;
+    color: var(--accent-orange);
+    line-height: 1;
+    margin-bottom: 30px;
+}
+
+.cta-image img {
+    width: 100%;
+    filter: grayscale(100%) contrast(1.2);
+}
+
+.newsletter-section>.container {
+    position: relative;
+    z-index: 1;
+}
+
+/* Nyhedsbrev */
+.newsletter-section {
+    text-align: center;
+    padding: 100px 0;
+    background-color: var(--bg-light);
+    color: var(--text-black);
+    /* Opret en takket kant eller simpel ramme */
+    clip-path: polygon(0 5%, 100% 0, 100% 100%, 0 100%);
+    margin-top: -20px;
+    position: relative;
+    z-index: 10;
+}
+
+.newsletter-section::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background-image: url('../assets/images/grunge-light-background.webp');
+    background-size: 70%;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.8;
+    z-index: 0;
+    pointer-events: none;
+}
+
+
+.auth-title {
+    font-family: 'Silver Forte Grunge', var(--font-heading);
+    font-size: 3rem;
+    color: var(--accent-orange);
+    margin-bottom: 40px;
+}
+
+.newsletter-form {
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    gap: 10px;
+}
+
+.newsletter-form input {
+    flex: 1;
+    padding: 15px;
+    background: var(--bg-dark);
+    /* Ændret fra #222 */
+    border: 1px solid var(--text-black);
+    /* Ændret fra #333 */
+    color: var(--text-white);
+    font-family: var(--font-body);
+}
+
+.privacy-note {
+    margin-top: 15px;
+    font-size: 0.8rem;
+    color: var(--bg-dark);
+    /* Ændret fra #666 */
+    opacity: 0.8;
+}
+
+/* Footer */
+.site-footer {
+    background-color: var(--bg-dark);
+    padding: 60px 0 20px;
+    border-top: 1px solid var(--text-black);
+    /* Ændret fra #222 */
+    color: var(--text-white);
+}
+
+.footer-logo img {
+    width: 40px;
+    /* Fast lille bredde */
+    height: auto;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+
+.footer-links {
+    display: flex;
+    gap: 30px;
+}
+
+.footer-links a {
+    color: var(--text-white);
+    /* Ændret fra #888 til var(--text-white) */
+    text-transform: uppercase;
+    font-size: 0.9rem;
+
+}
+
+.footer-links a:hover {
+    color: var(--accent-orange);
+}
+
+.footer-socials {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-socials a {
+    color: var(--text-white);
+    /* Ændret til var(--text-white) */
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.footer-socials a:hover {
+    color: var(--accent-orange);
+}
+
+.footer-bottom {
+    text-align: center;
+    color: var(--text-white);
+    /* Ændret fra #444 */
+    opacity: 0.5;
+    /* Dæmpet for ophavsretstekst */
+    font-size: 0.8rem;
+}
+
+/* Responsive justeringer for Footer */
+@media (max-width: 768px) {
+    .cta-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+}
