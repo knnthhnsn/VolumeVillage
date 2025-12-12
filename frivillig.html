@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bliv Frivillig - Volume Village</title>
+    <link rel="icon" type="image/svg+xml" href="assets/images/logo.svg">
     <meta name="description"
         content="Bliv frivillig hos Volume Village og vær en del af fællesskabet. Oplev koncerter og events indefra.">
 
@@ -19,62 +20,148 @@
 
     <!-- Stilark -->
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/menu-overlay.css">
+    <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="css/hero.css">
     <link rel="stylesheet" href="css/frivillig.css">
     <link rel="stylesheet" href="css/footer.css">
+
+    <style>
+        html.lenis {
+            height: auto;
+        }
+
+        .lenis.lenis-smooth {
+            scroll-behavior: auto;
+        }
+
+        .lenis.lenis-smooth [data-lenis-prevent] {
+            overscroll-behavior: contain;
+        }
+
+        .lenis.lenis-stopped {
+            overflow: hidden;
+        }
+    </style>
 </head>
 
 <body>
 
-    <!-- Header -->
-    <header class="site-header">
-        <div class="header-content">
-            <a href="index.html" class="logo">
-                <img src="assets/images/logo.svg" alt="Volume Village Logo" class="logo-image">
+    <!-- FULLSCREEN NAV -->
+    <div class="bold-nav-full" data-navigation-status="not-active">
+        <!-- TOP BAR -->
+        <div class="bold-nav-full__bar">
+            <!-- DEFAULT LOGO (styres af scroll) -->
+            <a href="index.html" class="bold-nav-full__logo bold-nav-full__logo--default">
+                <img src="assets/images/volume-hero/logo.svg" alt="Volume Village logo">
             </a>
-            <nav class="main-nav">
-                <button class="menu-toggle" aria-label="Menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-            </nav>
+            <!-- ACTIVE LOGO (altid orange, bruges kun når menu er åben) -->
+            <a href="index.html" class="bold-nav-full__logo bold-nav-full__logo--active">
+                <img src="assets/images/volume-hero/logo.svg" alt="Volume Village logo">
+            </a>
+            <!-- DEFAULT BURGER (styres af scroll) -->
+            <button class="bold-nav-full__hamburger bold-nav-full__hamburger--default" data-navigation-toggle="toggle">
+                <span class="bold-nav-full__hamburger-bar">
+                    <span class="bold-nav-full__hamburger-bar-inner"></span>
+                </span>
+                <span class="bold-nav-full__hamburger-bar">
+                    <span class="bold-nav-full__hamburger-bar-inner"></span>
+                </span>
+                <span class="bold-nav-full__hamburger-bar">
+                    <span class="bold-nav-full__hamburger-bar-inner"></span>
+                </span>
+            </button>
+            <!-- ACTIVE BURGER (altid orange, bruges når menu er åben) -->
+            <button class="bold-nav-full__hamburger bold-nav-full__hamburger--active" data-navigation-toggle="toggle">
+                <span class="bold-nav-full__hamburger-bar">
+                    <span class="bold-nav-full__hamburger-bar-inner"></span>
+                </span>
+                <span class="bold-nav-full__hamburger-bar">
+                    <span class="bold-nav-full__hamburger-bar-inner"></span>
+                </span>
+                <span class="bold-nav-full__hamburger-bar">
+                    <span class="bold-nav-full__hamburger-bar-inner"></span>
+                </span>
+            </button>
         </div>
-    </header>
-
-    <!-- Fuldskærms Menu Overlay -->
-    <div class="menu-overlay">
-        <div class="menu-overlay-bg"></div>
-        <nav class="overlay-nav">
-            <ul class="overlay-menu-list">
-                <li style="--i:3;"><a href="galleri.html" data-text="GALLERI">GALLERI</a></li>
-                <li style="--i:5;"><a href="index.html#events" data-text="EVENTS">EVENTS</a></li>
-                <li style="--i:6;"><a href="frivillig.html" data-text="BLIV FRIVILLIG">BLIV FRIVILLIG</a></li>
+        <!-- TILE / MENU OVERLAY -->
+        <div class="bold-nav-full__tile">
+            <!-- MENU LIST -->
+            <ul class="bold-nav-full__ul">
+                <li class="bold-nav-full__li bold-nav-full__li--forside">
+                    <a href="index.html" class="bold-nav-full__link">
+                        <span class="bold-nav-full__link-text">FORSIDE</span>
+                    </a>
+                </li>
+                <li class="bold-nav-full__li bold-nav-full__li--koncerter">
+                    <a href="index.html#events" class="bold-nav-full__link">
+                        <span class="bold-nav-full__link-text">KONCERTER</span>
+                    </a>
+                </li>
+                <li class="bold-nav-full__li bold-nav-full__li--galleri">
+                    <a href="galleri.html" class="bold-nav-full__link">
+                        <span class="bold-nav-full__link-text">GALLERI</span>
+                    </a>
+                </li>
+                <li class="bold-nav-full__li bold-nav-full__li--kontakt">
+                    <a href="#" class="bold-nav-full__link">
+                        <span class="bold-nav-full__link-text">KONTAKT</span>
+                    </a>
+                </li>
+                <li class="bold-nav-full__li bold-nav-full__li--billetter">
+                    <a href="#" class="bold-nav-full__link">
+                        <span class="bold-nav-full__link-text">BILLETTER</span>
+                    </a>
+                </li>
             </ul>
-        </nav>
-        <div class="overlay-footer">
-            <span>VOLUME VILLAGE &copy; 2025</span>
-            <div class="social-links">
-                <a href="#"><ion-icon name="logo-facebook"></ion-icon></a>
-                <a href="#"><ion-icon name="logo-instagram"></ion-icon></a>
+            <!-- STICKERS WRAPPER -->
+            <div class="bold-nav-full__stickers">
+                <!-- FORSIDE -->
+                <div class="stickers-group stickers-group--forside">
+                    <img src="assets/images/volume-hero/hjerte1.svg" class="sticker" alt="">
+                    <img src="assets/images/volume-hero/smiley.svg" class="sticker" alt="">
+                    <img src="assets/images/volume-hero/stjerne.svg" class="sticker" alt="">
+                    <img src="assets/images/volume-hero/hjerte2.svg" class="sticker" alt="">
+                </div>
+                <!-- KONCERTER -->
+                <div class="stickers-group stickers-group--koncerter">
+                    <img src="assets/images/volume-hero/lyd.svg" class="sticker" alt="">
+                    <img src="assets/images/volume-hero/stjerne.svg" class="sticker" alt="">
+                    <img src="assets/images/volume-hero/lyd.svg" class="sticker" alt="">
+                    <img src="assets/images/volume-hero/rids.svg" class="sticker" alt="">
+                </div>
+                <!-- GALLERI -->
+                <div class="stickers-group stickers-group--galleri">
+                    <img src="assets/images/volume-hero/hjerte2.svg" class="sticker" alt="">
+                    <img src="assets/images/volume-hero/rids.svg" class="sticker" alt="">
+                    <img src="assets/images/volume-hero/smiley.svg" class="sticker" alt="">
+                    <img src="assets/images/volume-hero/stjerne.svg" class="sticker" alt="">
+                </div>
+                <!-- KONTAKT -->
+                <div class="stickers-group stickers-group--kontakt">
+                    <img src="assets/images/volume-hero/hjerte1.svg" class="sticker" alt="">
+                    <img src="assets/images/volume-hero/smiley.svg" class="sticker" alt="">
+                    <img src="assets/images/volume-hero/rids.svg" class="sticker" alt="">
+                    <img src="assets/images/volume-hero/hjerte3.svg" class="sticker" alt="">
+                </div>
+                <!-- BILLETTER -->
+                <div class="stickers-group stickers-group--billetter">
+                    <img src="assets/images/volume-hero/stjerne.svg" class="sticker" alt="">
+                    <img src="assets/images/volume-hero/rids.svg" class="sticker" alt="">
+                    <img src="assets/images/volume-hero/smiley.svg" class="sticker" alt="">
+                    <img src="assets/images/volume-hero/hjerte3.svg" class="sticker" alt="">
+                </div>
             </div>
-        </div>
-    </div>
+            <!-- BOTTOM -->
+            <div class="bold-nav__bottom">
+                <p class="bold-nav__word">VOLUME VILLAGE © 2025</p>
+            </div>
+        </div> <!-- /.bold-nav-full__tile -->
+    </div> <!-- /.bold-nav-full -->
 
     <main>
-        <!-- Hero Sektion -->
-        <section class="frivillig-hero">
-            <div class="hero-bg">
-                <img src="assets/images/singer-bg.jpg" alt="Frivillig hos Volume Village" class="hero-image">
-            </div>
-            <div class="container hero-content-centered">
-                <h1 class="frivillig-hero-title">BLIV EN DEL AF <br>HOLDET</h1>
-            </div>
-        </section>
 
-        <!-- Hoved Sektion 1: Opgaver & Fordele -->
-        <section class="section frivillig-content-1">
+        <!-- Tidligere Hero Sektion nu som indhold -->
+        <section class="section artist-intro" style="padding-top: 150px;">
             <div class="container grid-layout">
                 <div class="text-col">
                     <h2 class="section-title">SKAB VOLUME</h2>
@@ -158,7 +245,9 @@
 
     <!-- Skripter -->
     <script src="js/main.js"></script>
-    <script src="js/menu-interaction.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.23/bundled/lenis.min.js"></script>
+    <script src="js/menu.js"></script>
+    <script src="js/hero.js"></script>
 </body>
 
 </html>
