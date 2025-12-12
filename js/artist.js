@@ -19,5 +19,4 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Tilfældige Billet Links hvis nødvendigt (pladsholder)
 });

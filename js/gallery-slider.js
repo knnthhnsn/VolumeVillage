@@ -5,15 +5,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (!track || !prevBtn || !nextBtn) return;
 
-    // Rulle beløb kunne være dynamisk baseret på billedbredde, antager fuld bredde eller fast
-    // Indtil videre, lad os rulle med et klart beløb (f.eks. 400px + mellemrum)
+    /* 
+       Vi scroller 420px af gangen.
+       - Billederne har en højde på 400px (defineret i CSS .gallery-track a).
+       - Der er 20px gap mellem billederne (CSS .gallery-track gap: 20px).
+       - Total bredde per "item" er derfor ca. 400px + 20px = 420px, da de ofte er kvadratiske eller brede.
+       (Bemærk: Hvis billedbredden varierer meget, kan dette evt. skulle gøres dynamisk senere).
+    */
     const scrollAmount = 420;
 
     nextBtn.addEventListener('click', () => {
-        track.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+        const firstItem = track.querySelector('a');
+        if (firstItem) {
+            const itemWidth = firstItem.offsetWidth + 20; // bredde + gap
+            track.scrollBy({ left: itemWidth, behavior: 'smooth' });
+        }
     });
 
     prevBtn.addEventListener('click', () => {
-        track.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+        const firstItem = track.querySelector('a');
+        if (firstItem) {
+            const itemWidth = firstItem.offsetWidth + 20; // bredde + gap
+            track.scrollBy({ left: -itemWidth, behavior: 'smooth' });
+        }
     });
 });

@@ -27,9 +27,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
             track.scrollTo({ left: scrollPos, behavior: 'smooth' });
 
-            // Valgfri fremhævning
+            // Visuel fremhævning
             cards.forEach(card => card.style.borderColor = '');
-            // Vent på at rulning sandsynligvis slutter eller fremhæv straks
+
+            // Vent lidt før highlight
             setTimeout(() => {
                 cards[randomIndex].style.borderColor = 'var(--accent-orange)';
                 setTimeout(() => {
