@@ -1,6 +1,12 @@
 .video-scroll-section {
     position: relative;
-    height: 100vh !important;
+    height: 105vh !important;
+    /* 
+       Jeg har sat den til 105vh fordi 100vh driller.
+       Browseren laver nogle gange en lille hvid streg i bunden pga. afrundingsfejl,
+       så nu overlapper vi bare lidt ekstra for at være sikre på den dækker helt.
+    */
+
     width: 100%;
     /* Bestemmer længden af rullesporet */
     background-color: #000;
@@ -23,4 +29,50 @@
     height: 100%;
     object-fit: cover;
     display: block;
+}
+
+.video-overlay-cta {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease-in, transform 0.5s ease-out;
+}
+
+@keyframes pulse-cta {
+    0% {
+        transform: translate(-50%, -50%) scale(0.95);
+        box-shadow: 0 0 0 0 rgba(255, 85, 0, 0.7);
+    }
+
+    70% {
+        transform: translate(-50%, -50%) scale(1.05);
+        box-shadow: 0 0 0 15px rgba(255, 85, 0, 0);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(0.95);
+        box-shadow: 0 0 0 0 rgba(255, 85, 0, 0);
+    }
+}
+
+.video-overlay-cta.show {
+    opacity: 1;
+    pointer-events: auto;
+    /* 
+       Tilbage til den simplere, men lækre zoom-in effekt (cta-pop-in).
+       Vi prøvede en vildere "Cyber Pop" effekt med rotation og blur, men den blev for meget.
+       Denne animation er mere rolig og elegant, men stadig opmærksomhedsskabende.
+    */
+    animation: cta-pop-in 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards, pulse-cta 2s infinite 0.6s;
+}
+
+@keyframes cta-pop-in {
+    0% {
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
 }

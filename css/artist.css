@@ -163,10 +163,9 @@
 }
 
 .music-player-placeholder {
-    background: #000;
-    padding: 20px;
-    border-radius: 5px;
-    color: #fff;
+    /* background: #000;  Fjernet efter ønske */
+    /* padding: 20px;     Fjernet efter ønske */
+    /* border-radius: 5px; Fjernet efter ønske */
     margin-top: auto;
 }
 

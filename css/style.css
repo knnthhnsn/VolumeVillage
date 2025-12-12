@@ -150,3 +150,34 @@ img {
         /* Reducer vertikal polstring */
     }
 }
+
+/* Ekstra tilpasning til helt små mobiler */
+@media (max-width: 480px) {
+    :root {
+        --gutter: 12px;
+    }
+
+    h1 {
+        font-size: 2rem !important;
+    }
+
+    h2 {
+        font-size: 1.5rem !important;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+        /* Markant mindre for at undgå overflow */
+        word-wrap: break-word;
+        /* Sikrer at lange ord knækker */
+    }
+
+    .section-desc {
+        font-size: 1rem;
+    }
+
+    .btn {
+        padding: 10px 16px;
+        font-size: 0.9rem;
+    }
+}

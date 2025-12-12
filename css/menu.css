@@ -1,0 +1,632 @@
+/* Font definitioner */
+@font-face {
+    font-family: "Silver Forte Grunge";
+    src: url("../assets/fonts/Silver Forte GrungeDEMO.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Simple Grunge";
+    src: url("../assets/fonts/Simple Grunge.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Navigations indpakning */
+
+.bold-nav-full__logo img {
+    width: 70px;
+    height: auto;
+    display: block;
+}
+
+
+.bold-nav-full {
+    z-index: 9999;
+    pointer-events: none;
+    position: fixed;
+    inset: 0;
+}
+
+[data-navigation-status="active"].bold-nav-full {
+    pointer-events: auto;
+}
+
+/* Logo PNG – starter helt sort, JS skruer op for lysstyrke */
+.bold-nav-full__logo img {
+    display: block;
+    filter: brightness(0);
+    /* 0 = helt sort, 1 = original farve */
+    transition: filter 0.25s linear;
+}
+
+
+/* Top bjælke */
+
+.bold-nav-full__hamburger {
+    pointer-events: auto;
+    cursor: pointer;
+    background-color: transparent;
+    justify-content: center;
+    align-items: center;
+    width: 3em;
+    height: 3em;
+    display: flex;
+    position: relative;
+    overflow: hidden;
+    border: none;
+    color: #000000;
+    /* start sort – JS ændrer til orange */
+    transition: color 0.2s linear;
+}
+
+
+.bold-nav-full__bar {
+    z-index: 5;
+    position: absolute;
+    inset: 0 auto auto 0;
+    width: 100%;
+    padding: 2.5em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    pointer-events: none;
+}
+
+
+
+.bold-nav-full__logo {
+    pointer-events: auto;
+    /* kan klikkes selv om bar’en har none */
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+}
+
+/* Standard logo (styres af scroll) */
+.bold-nav-full__logo--default {
+    pointer-events: auto;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+}
+
+.bold-nav-full__logo--default img {
+    display: block;
+    width: 70px;
+    height: auto;
+    filter: brightness(0);
+    /* starter sort */
+    transition: filter 0.25s linear;
+}
+
+/* Aktivt logo (altid orange) */
+.bold-nav-full__logo--active {
+    pointer-events: auto;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+}
+
+.bold-nav-full__logo--active img {
+    display: block;
+    width: 70px;
+    height: auto;
+    filter: brightness(1);
+    /* altid fuld styrke */
+}
+
+
+
+/* Burger menu */
+
+
+/* Grund-stil til burger-stængerne */
+.bold-nav-full__hamburger-bar {
+    position: absolute;
+    width: 2em;
+    /* længde på stregen */
+    height: 0.125em;
+    /* tykkelse på stregen */
+    transform: translate(0, 0) rotate(0.001deg);
+    transition:
+        transform 0.5s cubic-bezier(.7, 0, .3, 1),
+        opacity 0.3s ease;
+}
+
+/* Det indre lag, som vi animerer (EQ-effekt) */
+.bold-nav-full__hamburger-bar-inner {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: currentColor;
+    /* bruger farven fra knappen */
+}
+
+.bold-nav-full__hamburger {
+    pointer-events: auto;
+    color: #fc4c02;
+    cursor: pointer;
+    background-color: transparent;
+    justify-content: center;
+    align-items: center;
+    width: 3em;
+    height: 3em;
+    display: flex;
+    position: relative;
+    overflow: hidden;
+    border: none;
+}
+
+/* Standard burger – styres af scroll */
+.bold-nav-full__hamburger--default {
+    pointer-events: auto;
+    cursor: pointer;
+    background-color: transparent;
+    justify-content: center;
+    align-items: center;
+    width: 3em;
+    height: 3em;
+    display: flex;
+    position: relative;
+    overflow: hidden;
+    border: none;
+    color: #000000;
+    /* start sort */
+    transition: color 0.2s linear, filter 0.2s linear;
+}
+
+/* Aktiv burger – altid orange */
+.bold-nav-full__hamburger--active {
+    pointer-events: auto;
+    cursor: pointer;
+    background-color: transparent;
+    justify-content: center;
+    align-items: center;
+    width: 3em;
+    height: 3em;
+    display: flex;
+    position: relative;
+    overflow: hidden;
+    border: none;
+    color: #fc4c02;
+    /* fast orange */
+}
+
+/* Standard: vis scroll-styrede, skjul aktive */
+.bold-nav-full__logo--default,
+.bold-nav-full__hamburger--default {
+    display: inline-flex;
+}
+
+.bold-nav-full__logo--active,
+.bold-nav-full__hamburger--active {
+    display: none;
+}
+
+/* Når menu er aktiv: vis de orange, skjul scroll-versionerne */
+[data-navigation-status="active"] .bold-nav-full__logo--default,
+[data-navigation-status="active"] .bold-nav-full__hamburger--default {
+    display: none;
+}
+
+[data-navigation-status="active"] .bold-nav-full__logo--active,
+[data-navigation-status="active"] .bold-nav-full__hamburger--active {
+    display: inline-flex;
+}
+
+
+.bold-nav-full__hamburger .bold-nav-full__hamburger-bar:nth-child(1) {
+    transform: translate(0, -.45em) scale(1, 1) rotate(0.001deg);
+}
+
+.bold-nav-full__hamburger .bold-nav-full__hamburger-bar:nth-child(3) {
+    transform: translate(0, .45em) scale(1, 1) rotate(0.001deg);
+}
+
+/* Hover (lukket) */
+.bold-nav-full__hamburger:hover .bold-nav-full__hamburger-bar:nth-child(1) {
+    transform: translate(0, -.45em) scale(.5, 1) rotate(0.001deg);
+}
+
+.bold-nav-full__hamburger:hover .bold-nav-full__hamburger-bar:nth-child(3) {
+    transform: translate(0, .45em) scale(.5, 1) rotate(0.001deg);
+}
+
+/* Åben tilstand (X) */
+[data-navigation-status="active"] .bold-nav-full__hamburger-bar:nth-child(1) {
+    transform: translate(0, 0) rotate(45deg) scale(1, 1);
+}
+
+[data-navigation-status="active"] .bold-nav-full__hamburger-bar:nth-child(3) {
+    transform: translate(0, 0) rotate(-45deg) scale(1, 1);
+}
+
+/* Glidende overgang mellem burgere */
+
+.bold-nav-full__hamburger--default,
+.bold-nav-full__hamburger--active {
+    opacity: 1;
+    transition: opacity 0.15s ease;
+    /* gør skift smooth */
+}
+
+/* Når menu åbner → default fader ud, active fader ind */
+[data-navigation-status="active"] .bold-nav-full__hamburger--default {
+    opacity: 0;
+    pointer-events: none;
+    /* så man ikke klikker på den usynlige */
+}
+
+[data-navigation-status="active"] .bold-nav-full__hamburger--active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Når menu er lukket → reverse fade */
+[data-navigation-status="not-active"] .bold-nav-full__hamburger--default {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+[data-navigation-status="not-active"] .bold-nav-full__hamburger--active {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Midterstreg – må IKKE glide ud til venstre */
+[data-navigation-status="active"] .bold-nav-full__hamburger-bar:nth-child(2) {
+    opacity: 0;
+    /* forsvinder */
+    transform: translate(0, 0) scale(0.4, 1) rotate(0.001deg);
+}
+
+/* Lidt hover-juice når X er aktiv */
+[data-navigation-status="active"] .bold-nav-full__hamburger:hover .bold-nav-full__hamburger-bar:nth-child(1) {
+    transform: translate(0, 0) rotate(45deg) scale(.7, 1);
+}
+
+[data-navigation-status="active"] .bold-nav-full__hamburger:hover .bold-nav-full__hamburger-bar:nth-child(3) {
+    transform: translate(0, 0) rotate(-45deg) scale(.7, 1);
+}
+
+/* Positioner */
+.bold-nav-full__hamburger-bar:nth-child(1) {
+    transform: translateY(-0.45em);
+}
+
+.bold-nav-full__hamburger-bar:nth-child(2) {
+    transform: translateY(0);
+}
+
+.bold-nav-full__hamburger-bar:nth-child(3) {
+    transform: translateY(0.45em);
+}
+
+/* Glidende EQ Keyframes */
+
+@keyframes smooth-eq-top {
+    0% {
+        transform: scaleX(0.85);
+    }
+
+    25% {
+        transform: scaleX(1.15);
+    }
+
+    55% {
+        transform: scaleX(0.95);
+    }
+
+    85% {
+        transform: scaleX(1.10);
+    }
+
+    100% {
+        transform: scaleX(0.85);
+    }
+}
+
+@keyframes smooth-eq-mid {
+    0% {
+        transform: scaleX(0.80);
+    }
+
+    30% {
+        transform: scaleX(1.20);
+    }
+
+    60% {
+        transform: scaleX(0.92);
+    }
+
+    100% {
+        transform: scaleX(0.80);
+    }
+}
+
+@keyframes smooth-eq-bottom {
+    0% {
+        transform: scaleX(0.90);
+    }
+
+    35% {
+        transform: scaleX(1.25);
+    }
+
+    70% {
+        transform: scaleX(1.00);
+    }
+
+    100% {
+        transform: scaleX(0.90);
+    }
+}
+
+/* EQ Hover (kun når lukket) */
+
+[data-navigation-status="not-active"] .bold-nav-full__hamburger:hover .bold-nav-full__hamburger-bar:nth-child(1) .bold-nav-full__hamburger-bar-inner {
+    animation: smooth-eq-top 1.6s ease-in-out infinite;
+}
+
+[data-navigation-status="not-active"] .bold-nav-full__hamburger:hover .bold-nav-full__hamburger-bar:nth-child(2) .bold-nav-full__hamburger-bar-inner {
+    animation: smooth-eq-mid 1.9s ease-in-out infinite;
+}
+
+[data-navigation-status="not-active"] .bold-nav-full__hamburger:hover .bold-nav-full__hamburger-bar:nth-child(3) .bold-nav-full__hamburger-bar-inner {
+    animation: smooth-eq-bottom 2.2s ease-in-out infinite;
+}
+
+/* X-ikon tilstand */
+
+[data-navigation-status="active"] .bold-nav-full__hamburger-bar-inner {
+    animation: none !important;
+    transform: scaleX(1);
+}
+
+[data-navigation-status="active"] .bold-nav-full__hamburger-bar:nth-child(1) {
+    transform: translateY(0) rotate(45deg);
+}
+
+[data-navigation-status="active"] .bold-nav-full__hamburger-bar:nth-child(2) {
+    transform: translateX(-150%);
+}
+
+[data-navigation-status="active"] .bold-nav-full__hamburger-bar:nth-child(3) {
+    transform: translateY(0) rotate(-45deg);
+}
+
+/* Subtil hover effekt når åben */
+[data-navigation-status="active"] .bold-nav-full__hamburger:hover .bold-nav-full__hamburger-bar:nth-child(1) {
+    transform: translateY(0) rotate(45deg) scaleX(0.9);
+}
+
+[data-navigation-status="active"] .bold-nav-full__hamburger:hover .bold-nav-full__hamburger-bar:nth-child(3) {
+    transform: translateY(0) rotate(-45deg) scaleX(0.9);
+}
+
+/* Baggrundsoverlay */
+
+.bold-nav-full__tile {
+    pointer-events: auto;
+    background-color: rgb(36, 32, 26);
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: clip-path 1s cubic-bezier(.9, 0, .1, 1);
+    clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%);
+}
+
+[data-navigation-status="active"] .bold-nav-full__tile {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+}
+
+/* Menu liste */
+
+.bold-nav-full__ul {
+    flex-flow: column;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.bold-nav-full__li {
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    display: flex;
+    position: relative;
+    overflow: hidden;
+    transition: opacity 0.5s cubic-bezier(.7, 0, .3, 1);
+}
+
+/* Dim andre links på hover */
+.bold-nav-full__ul:has(.bold-nav-full__li:hover) .bold-nav-full__li {
+    opacity: 0.2;
+}
+
+.bold-nav-full__ul:has(.bold-nav-full__li:hover) .bold-nav-full__li:hover {
+    opacity: 1;
+}
+
+.bold-nav-full__link {
+    color: #fc4c02;
+    padding-left: 0.075em;
+    padding-right: 0.075em;
+    font-family: "Silver Forte Grunge", sans-serif;
+    font-size: calc(4vw + 4vh);
+    font-weight: 400;
+    line-height: 1.1;
+    text-decoration: none;
+    transform: translateY(100%) rotate(5deg);
+    transition: transform 0.75s cubic-bezier(.7, 0, .3, 1);
+}
+
+.bold-nav-full__link-text {
+    text-shadow: 0 1.35em 0;
+    /* Skubbet længere ned for at undgå glitch */
+    display: block;
+    position: relative;
+    transition: transform 0.5s cubic-bezier(.7, 0, .3, 1);
+    transform: translateY(0%) rotate(0.001deg);
+}
+
+.bold-nav-full__link:hover .bold-nav-full__link-text {
+    transform: translateY(-1.35em) rotate(0.001deg);
+    /* Matcher den nye text-shadow afstand */
+}
+
+/* Stagger (lukket) */
+.bold-nav-full__li:nth-child(1) .bold-nav-full__link {
+    transition-delay: 0.2s;
+}
+
+.bold-nav-full__li:nth-child(2) .bold-nav-full__link {
+    transition-delay: 0.15s;
+}
+
+.bold-nav-full__li:nth-child(3) .bold-nav-full__link {
+    transition-delay: 0.1s;
+}
+
+.bold-nav-full__li:nth-child(4) .bold-nav-full__link {
+    transition-delay: 0.05s;
+}
+
+.bold-nav-full__li:nth-child(5) .bold-nav-full__link {
+    transition-delay: 0s;
+}
+
+/* Stagger (åben) */
+[data-navigation-status="active"] .bold-nav-full__link {
+    transform: translateY(0%) rotate(0.001deg);
+    transition-delay: 0.3s;
+}
+
+[data-navigation-status="active"] .bold-nav-full__li:nth-child(1) .bold-nav-full__link {
+    transition-delay: 0.3s;
+}
+
+[data-navigation-status="active"] .bold-nav-full__li:nth-child(2) .bold-nav-full__link {
+    transition-delay: 0.35s;
+}
+
+[data-navigation-status="active"] .bold-nav-full__li:nth-child(3) .bold-nav-full__link {
+    transition-delay: 0.4s;
+}
+
+[data-navigation-status="active"] .bold-nav-full__li:nth-child(4) .bold-nav-full__link {
+    transition-delay: 0.45s;
+}
+
+[data-navigation-status="active"] .bold-nav-full__li:nth-child(5) .bold-nav-full__link {
+    transition-delay: 0.5s;
+}
+
+/* Stickers */
+
+.bold-nav-full__stickers {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.stickers-group {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+/* Selve stickers – dobbelt størrelse */
+.sticker {
+    position: absolute;
+    width: 220px;
+    height: auto;
+    opacity: 0.22;
+    transform: translate(0, 0) rotate(var(--sticker-rot, 0deg));
+    transition: transform 0.12s linear;
+}
+
+/* Nye placeringer – stor afstand, ingen overlap */
+
+/* Sticker 1 – venstre top */
+.sticker:nth-child(1) {
+    top: 10%;
+    left: 3%;
+    transform: rotate(-6deg);
+}
+
+/* Sticker 2 – venstre midt */
+.sticker:nth-child(2) {
+    top: 55%;
+    left: 5%;
+    transform: rotate(4deg);
+}
+
+/* Sticker 3 – højre top */
+.sticker:nth-child(3) {
+    top: 14%;
+    right: 4%;
+    transform: rotate(7deg);
+}
+
+/* Sticker 4 – højre bund */
+.sticker:nth-child(4) {
+    bottom: 18%;
+    right: 6%;
+    transform: rotate(-4deg);
+}
+
+/* Visning ved hover */
+
+[data-navigation-status="active"] .bold-nav-full__tile:has(.bold-nav-full__li--forside:hover) .stickers-group--forside {
+    opacity: 1;
+}
+
+[data-navigation-status="active"] .bold-nav-full__tile:has(.bold-nav-full__li--koncerter:hover) .stickers-group--koncerter {
+    opacity: 1;
+}
+
+[data-navigation-status="active"] .bold-nav-full__tile:has(.bold-nav-full__li--galleri:hover) .stickers-group--galleri {
+    opacity: 1;
+}
+
+[data-navigation-status="active"] .bold-nav-full__tile:has(.bold-nav-full__li--kontakt:hover) .stickers-group--kontakt {
+    opacity: 1;
+}
+
+[data-navigation-status="active"] .bold-nav-full__tile:has(.bold-nav-full__li--billetter:hover) .stickers-group--billetter {
+    opacity: 1;
+}
+
+
+/* Bund sektion */
+
+.bold-nav__bottom {
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 2.25em 2.5em;
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.bold-nav__word {
+    opacity: 0.5;
+    margin-bottom: 0;
+    font-size: 0.9em;
+    color: #b9b9b9;
+}

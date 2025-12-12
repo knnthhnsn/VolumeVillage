@@ -7,7 +7,8 @@
     background-color: var(--bg-dark);
     /* Brug bg-dark som base */
     position: relative;
-    /* Kontekst for overlay */
+    z-index: 2;
+    /* Kontekst for overlay og sikring mod sol */
 }
 
 /* Grunge Baggrundslag (50% Opacitet) */
@@ -56,7 +57,6 @@
     height: 100%;
     width: 100%;
     background-color: var(--bg-light);
-    /* Brug --bg-light variabel */
     opacity: 0.9;
     /* 90% opacitet */
     z-index: 0;
@@ -219,9 +219,7 @@
 /* Galleri Slider */
 .gallery-section {
     background-color: var(--bg-dark);
-    /* Behold base baggrund */
     background-image: url('../assets/images/dots.webp');
-    /* Ændret til dots.webp */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -236,7 +234,7 @@
     overflow-x: auto;
     overflow-x: auto;
     padding: 10px var(--gutter) 10px var(--gutter);
-    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
     scrollbar-width: none;
     -ms-overflow-style: none;
@@ -249,8 +247,9 @@
 .gallery-track a {
     display: block;
     height: 400px;
-    /* Ensure link takes full height of image */
     flex-shrink: 0;
+    scroll-snap-align: center;
+    /* Centrer billeder ved stop */
 }
 
 .gallery-track img {
@@ -260,7 +259,14 @@
     cursor: pointer;
 }
 
-/* Slider Controls */
+@media (max-width: 768px) {
+    .gallery-track a {
+        height: 250px;
+        /* Mindre højde på mobil */
+    }
+}
+
+/* Slider Kontroller */
 .slider-controls {
     display: flex;
     justify-content: flex-end;
@@ -301,11 +307,34 @@
 }
 
 .gallery-controls {
-    position: absolute;
-    bottom: 20px;
-    right: max(20px, calc((100% - var(--container-width)) / 2 + 20px));
+    /* 
+       Jeg har ændret positioneringen fra absolute til relative (standard flow).
+       Dette flytter knapperne ned under billederne i stedet for at ligge ovenpå dem.
+       Det skaber et renere layout, hvor navigationsknapperne ikke dækker for galleriets indhold.
+    */
+    position: relative;
+    bottom: auto;
+    right: auto;
     z-index: 10;
+    /* Uses .slider-controls styling for layout */
 }
 
-/* Juster galleri slider indpakning for kontroller */
-/* .gallery-slider-wrapper regel flyttet til top med .slider-container */
+/* Specifik stil for galleri knapper (lys baggrund) */
+.gallery-controls .slider-btn {
+    /* 
+       For at skabe kontrast på den lyse baggrund i galleriet, har jeg vendt farverne om:
+       Knappen er solid orange som standard for synlighed.
+    */
+    background-color: var(--accent-orange);
+    color: var(--text-white);
+}
+
+.gallery-controls .slider-btn:hover {
+    /*
+       Ved hover bliver den gennemsigtig med orange kant (omvendt af normal buttons).
+       Dette giver en let og "luftig" interaktionsfølelse.
+    */
+    background-color: transparent;
+    color: var(--accent-orange);
+    transform: scale(1.1);
+}
