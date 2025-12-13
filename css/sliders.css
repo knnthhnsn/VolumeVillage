@@ -20,7 +20,7 @@
     height: 100%;
     width: 100%;
     /* Overlay --bg-dark (#24201A) på billedet */
-    background-image: linear-gradient(rgba(36, 32, 26, 0.8), rgba(36, 32, 26, 0.8)), url('../assets/images/grunge-grid-baggrund.webp');
+    background-image: linear-gradient(rgba(36, 32, 26, 0.8), rgba(36, 32, 26, 0.8)), url('../assets/images/textures/grunge-grid-baggrund.webp');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -37,7 +37,7 @@
     transform: translate(-50%, -50%);
     width: 100%;
     height: 100%;
-    background-image: url('../assets/images/doodle.webp');
+    background-image: url('../assets/images/textures/doodle.webp');
     background-size: cover;
     /* Fuld skærm */
     background-position: center;
@@ -151,7 +151,7 @@
     position: absolute;
     top: -20px;
     left: -20px;
-    background-image: url('../assets/images/dato-sticker.webp');
+    background-image: url('../assets/images/ui/dato-sticker.webp');
     background-size: cover;
     background-color: transparent;
     color: var(--text-white);
@@ -219,7 +219,7 @@
 /* Galleri Slider */
 .gallery-section {
     background-color: var(--bg-dark);
-    background-image: url('../assets/images/dots.webp');
+    background-image: url('../assets/images/textures/dots.webp');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

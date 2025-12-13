@@ -47,8 +47,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Når video slutter, lås op og vis knap
         video.onended = () => {
+
             /* 
-               Vi viser først knappen 'BLIV FRIVILLIG' når videoen er helt færdig (onended).
+               Vi viser først knappen 'Bliv Frivillig' når videoen er helt færdig (onended).
                Tidligere brugte vi en timer til at vise den før slut, men det gjorde koden
                unødigt kompleks. Simpelhed vinder her for en mere robust løsning.
             */

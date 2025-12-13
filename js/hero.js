@@ -13,11 +13,11 @@ function updateHeroUI() {
     const defaultBurger = document.querySelector(".bold-nav-full__hamburger--default");
 
     if (!hero) {
-        // Fallback for sider uden hero: Sæt logo og burger til synlig (f.eks. hvid/original)
+        // Fallback for sider uden hero: Sæt logo og burger til synlig
         if (defaultLogo) defaultLogo.style.filter = "brightness(1) invert(0)";
         if (defaultBurger) {
-            defaultBurger.style.color = "#F5F5F5";
-            defaultBurger.style.filter = "brightness(1)";
+            defaultBurger.style.color = "#FF5500"; // Accent Orange
+            defaultBurger.style.filter = "none";
         }
         return;
     }
@@ -69,7 +69,13 @@ function updateHeroUI() {
         defaultLogo.style.filter = `brightness(${t})`;
     }
     if (defaultBurger) {
-        defaultBurger.style.filter = `brightness(${t})`;
-        defaultBurger.style.color = `rgb(${R}, ${G}, ${B})`;
+        // Vi skal skifte fra Sort (0,0,0) til Accent Orange (255, 85, 0)
+        // Lerp for hver kanal:
+        const burgerR = Math.round(0 + (255 - 0) * t);
+        const burgerG = Math.round(0 + (85 - 0) * t);
+        const burgerB = 0; // forbliver 0
+
+        defaultBurger.style.color = `rgb(${burgerR}, ${burgerG}, ${burgerB})`;
+        defaultBurger.style.filter = "none"; // nulstil filter
     }
 }

@@ -3,7 +3,7 @@
 /* Hero Sektion */
 .frivillig-hero {
     position: relative;
-    height: 80vh;
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -24,6 +24,19 @@
     height: 100%;
     object-fit: cover;
     filter: brightness(0.4);
+}
+
+.section.artist-intro {
+    background-image: url('../assets/images/textures/doodle.webp'), url('../assets/images/textures/tekstur_1.jpg');
+    background-position: center bottom, center center;
+    background-size: contain, cover;
+    background-repeat: no-repeat, no-repeat;
+    background-color: var(--bg-dark);
+    position: relative;
+    padding-bottom: 50px;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
 }
 
 .hero-content-centered {
@@ -107,6 +120,9 @@
 /* Sektion 2 */
 .frivillig-content-2 {
     background-color: #E0E0E0;
+    background-image: url('../assets/images/tekstur_3.webp');
+    background-size: cover;
+    background-position: center;
     /* Lysegrå */
     color: var(--text-black);
     position: relative;

@@ -606,7 +606,7 @@
     opacity: 1;
 }
 
-[data-navigation-status="active"] .bold-nav-full__tile:has(.bold-nav-full__li--billetter:hover) .stickers-group--billetter {
+[data-navigation-status="active"] .bold-nav-full__tile:has(.bold-nav-full__li--frivillig:hover) .stickers-group--frivillig {
     opacity: 1;
 }
 

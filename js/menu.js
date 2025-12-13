@@ -21,6 +21,18 @@ function initBoldFullScreenNavigation() {
         }
     });
 
+    /* 
+       Luk menuen når man klikker på et link.
+       Hvorfor? Hvis man klikker på et anker-link (f.eks. til #events på forsiden),
+       vil siden scrolle, men menuen ville blive hængende og dække for indholdet.
+       Derfor tvinger vi den til at lukke ('not-active') ved klik, så brugeren kan se sektionen.
+    */
+    document.querySelectorAll(".bold-nav-full__link").forEach(link => {
+        link.addEventListener("click", () => {
+            navRoot.setAttribute("data-navigation-status", "not-active");
+        });
+    });
+
 
     // Parallaxe effekt for stickers
     const stickers = [...document.querySelectorAll(".sticker")];

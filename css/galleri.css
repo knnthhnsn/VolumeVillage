@@ -87,6 +87,10 @@
 /* Galleri Grid Sektion */
 .gallery-grid-section {
     background-color: #2a2a2a;
+    background-image: url('../assets/images/textures/tekstur_1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     /* Lidt lysere mørk */
     position: relative;
 }
@@ -266,4 +270,16 @@
 
 .lightbox-close:hover {
     color: var(--accent-orange);
+}
+
+/* Ugens Billede Sektion */
+.artist-intro {
+    background-image: url('../assets/images/textures/tekstur_3.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.artist-intro .section-desc {
+    color: var(--text-black);
 }

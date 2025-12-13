@@ -67,6 +67,13 @@
 
 
 /* Hero Section */
+/* Added artist-intro to match HTML class */
+.artist-intro {
+    background-image: url('../assets/images/textures/tekstur_1.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
 .artist-hero {
     padding: 80px 0;
     min-height: 80vh;
@@ -102,7 +109,6 @@
 .hero-info-col {
     padding: 40px;
     background-image: url('../assets/images/concrete-texture.png');
-    /* Fallback/Antag eksisterer eller bare farve */
     background-color: #e0e0e0;
     color: #121212;
     /* Mørk tekst på lys baggrund */
@@ -180,6 +186,9 @@
 .program-section {
     padding: 100px 0;
     background-color: #e6e6e6;
+    background-image: url('../assets/images/textures/tekstur_3.webp');
+    background-size: cover;
+    background-position: center;
     /* Lysegrå sektion */
     color: #121212;
     position: relative;
@@ -237,10 +246,24 @@
 
 .event-tag {
     font-size: 0.8rem;
-    background: #ccc;
     padding: 2px 6px;
-    border: 1px solid #999;
 }
+
+.program-content {
+    display: none;
+    padding: 20px;
+    background-color: rgba(255, 85, 0, 0.2);
+    color: var(--text-black);
+    border-bottom: 1px solid #ccc;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.program-content.active {
+    display: block;
+}
+
+
 
 .buy-btn-small {
     background: var(--accent-orange);
@@ -264,8 +287,9 @@
     padding: 100px 0;
     background-color: var(--bg-dark);
     text-align: center;
-    background-image: url('../assets/images/grunge-texture-dark.png');
-    background-blend-mode: overlay;
+    background-image: url('../assets/images/textures/tekstur_2.jpg');
+    background-size: cover;
+    background-position: center;
 }
 
 .ticket-title {
@@ -286,6 +310,9 @@
 .earlier-shows-section {
     padding: 100px 0;
     background-color: #f5f5f5;
+    background-image: url('../assets/images/textures/tekstur_3.webp');
+    background-size: cover;
+    background-position: center;
     /* Lys igen */
     color: #121212;
 }
@@ -337,7 +364,15 @@
 .faq-section {
     padding: 100px 0;
     background-color: var(--bg-dark);
+    background-image: url('../assets/images/textures/tekstur_1.jpg');
+    background-size: cover;
+    background-position: center;
     color: #fff;
+}
+
+.more-info-subsection {
+    margin-top: 60px;
+    padding-top: 40px;
 }
 
 .faq-title {
