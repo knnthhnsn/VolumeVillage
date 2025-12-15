@@ -121,6 +121,11 @@
     margin-bottom: 40px;
 }
 
+/* 
+   Kilde: MDN Web Docs - CSS Flexbox 
+   Link: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox 
+*/
+
 .footer-links {
     display: flex;
     gap: 30px;

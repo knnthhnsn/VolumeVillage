@@ -428,6 +428,11 @@
     clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
 }
 
+/* 
+   Kilde: MDN Web Docs - CSS clip-path 
+   Link: https://developer.mozilla.org/en-US/docs/Web/CSS/clip-path 
+*/
+
 /* Menu liste */
 
 .bold-nav-full__ul {

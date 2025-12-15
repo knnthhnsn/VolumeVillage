@@ -31,6 +31,11 @@
     display: block;
 }
 
+/* 
+   Kilde: MDN Web Docs - Object-fit 
+   Link: https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit 
+*/
+
 .video-overlay-cta {
     opacity: 0;
     pointer-events: none;

@@ -98,6 +98,11 @@
     -ms-overflow-style: none;
 }
 
+/* 
+   Kilde: MDN Web Docs - CSS Scroll Snap 
+   Link: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_scroll_snap 
+*/
+
 .slider-track::-webkit-scrollbar {
     display: none;
 }

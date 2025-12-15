@@ -14,6 +14,11 @@
     --gutter: 20px;
 }
 
+/* 
+   Kilde: W3Schools - CSS Variables (Custom Properties) 
+   Link: https://www.w3schools.com/css/css3_variables.asp 
+*/
+
 @font-face {
     font-family: 'Silver Forte Grunge';
     src: url('../assets/fonts/Silver Forte GrungeDEMO.ttf') format('truetype');
@@ -107,8 +112,6 @@ img {
     font-size: 3rem;
     color: var(--accent-orange);
     margin-bottom: 10px;
-    /* Grunge teksteffekt idé: mix-blend-mode */
-    mix-blend-mode: hard-light;
     text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.5);
 }
 

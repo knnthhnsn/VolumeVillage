@@ -1,4 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
+    /* 
+       Accordion Funktionalitet (Fold-ud menu).
+       Dette script styrer FAQ-sektionen. Når man klikker på et spørgsmål,
+       foldes svaret ud, og alle andre svar lukkes automatisk (accordion style).
+    */
     // FAQ Fold-ud
     const accordionHeaders = document.querySelectorAll('.accordion-header');
 
@@ -19,6 +24,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    /* 
+       Tidslinje Expand.
+       Ligner FAQ'en, men specifikt for program-tidslinjen.
+       Knappen skifter tekst mellem "LÆS MERE" og "LUK".
+    */
     // Program Fold-ud
     const programButtons = document.querySelectorAll('.timeline .buy-btn-small');
 
@@ -57,3 +67,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 });
+
+/*
+  Kilder & Inspiration:
+  - W3Schools: Accordion (https://www.w3schools.com/howto/howto_js_accordion.asp)
+  - MDN: Element.nextElementSibling (https://developer.mozilla.org/en-US/docs/Web/API/Element/nextElementSibling)
+  - MDN: DOMTokenList.toggle/add/remove (https://developer.mozilla.org/en-US/docs/Web/API/DOMTokenList)
+*/

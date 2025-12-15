@@ -108,7 +108,7 @@
 
 .hero-info-col {
     padding: 40px;
-    background-image: url('../assets/images/concrete-texture.png');
+    background-image: url('../assets/images/textures/artist_tekstur.webp');
     background-color: #e0e0e0;
     color: #121212;
     /* Mørk tekst på lys baggrund */
@@ -118,29 +118,13 @@
     position: relative;
 }
 
-/* Tekstur overlay for info kolonne */
-.hero-info-col::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: repeating-linear-gradient(45deg,
-            transparent,
-            transparent 10px,
-            rgba(0, 0, 0, 0.05) 10px,
-            rgba(0, 0, 0, 0.05) 12px);
-    pointer-events: none;
-}
+
 
 .artist-title-large {
     font-family: 'Simple Grunge', var(--font-heading);
     font-size: 4rem;
     color: var(--accent-orange);
     margin-bottom: 20px;
-    text-shadow: 3px 3px 0px #fff;
-    mix-blend-mode: multiply;
 }
 
 .artist-bio {
@@ -169,9 +153,6 @@
 }
 
 .music-player-placeholder {
-    /* background: #000;  Fjernet efter ønske */
-    /* padding: 20px;     Fjernet efter ønske */
-    /* border-radius: 5px; Fjernet efter ønske */
     margin-top: auto;
 }
 
@@ -185,16 +166,13 @@
 /* Program Sektion */
 .program-section {
     padding: 100px 0;
-    background-color: #e6e6e6;
     background-image: url('../assets/images/textures/tekstur_3.webp');
     background-size: cover;
     background-position: center;
-    /* Lysegrå sektion */
     color: #121212;
     position: relative;
 }
 
-/* Genbrug omrids skribleri via pseudo elementer muligt, eller bare stil */
 .program-title {
     text-align: center;
     font-size: 4rem;
@@ -422,6 +400,11 @@
     /* Vilkårlig buffer */
     opacity: 1;
 }
+
+/* 
+   Kilde: W3Schools - How To Create an Accordion 
+   Link: https://www.w3schools.com/howto/howto_js_accordion.asp 
+*/
 
 /* Responsiv */
 @media (max-width: 768px) {

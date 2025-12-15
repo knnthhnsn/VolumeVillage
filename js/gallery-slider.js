@@ -6,17 +6,22 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!track || !prevBtn || !nextBtn) return;
 
     /* 
-    Vi scroller 420px af gangen.
-    Billederne har en højde på 400px (defineret i CSS .gallery-track a).
-    Der er 20px gap mellem billederne (CSS .gallery-track gap: 20px).
-    Total bredde per "item" er derfor ca. 400px + 20px = 420px
-    (Bemærk: Hvis billedbredden varierer meget, kan dette evt. skulle gøres dynamisk senere).
+       Konfiguration af scroll-afstand.
+       Vi sætter en fast værdi (scrollAmount) baseret på vores CSS-design.
+       Dette sikrer, at vi scroller præcis ét billede frem ad gangen.
+       (Bemærk: Kodeblokken herunder overskriver faktisk denne værdi dynamisk, hvilket er smartere).
     */
     const scrollAmount = 420;
 
     nextBtn.addEventListener('click', () => {
         const firstItem = track.querySelector('a');
         if (firstItem) {
+            /* 
+               Dynamisk beregning af bredde.
+               I stedet for at gætte på bredden (420px), måler vi det første element direkte (offsetWidth).
+               Vi lægger 20px til for at inkludere mellemrummet (gap) mellem billederne.
+               Dette gør slideren robust, selvom vi ændrer CSS-bredden senere.
+            */
             const itemWidth = firstItem.offsetWidth + 20; // bredde + gap
             track.scrollBy({ left: itemWidth, behavior: 'smooth' });
         }
@@ -30,3 +35,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
+/*
+  Kilder & Inspiration:
+  - MDN Web Docs: Element.scrollBy (https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollBy)
+  - MDN Web Docs: HTMLElement.offsetWidth (https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/offsetWidth)
+*/
