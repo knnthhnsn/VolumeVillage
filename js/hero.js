@@ -52,12 +52,6 @@ function updateHeroUI() {
     // Opacitet på bro overlay
     if (bridgeOverlay) bridgeOverlay.style.opacity = t;
 
-    // Stjernerne kommer frem når det bliver mørkt
-    const stars = document.querySelector(".vv-hero-bridge__stars");
-    if (stars) {
-        stars.style.opacity = t;  // 0 ved dag, 1 ved nat
-    }
-
     // Solens synlighed
     if (sun) {
         const heroBottom = heroTop + heroH;
