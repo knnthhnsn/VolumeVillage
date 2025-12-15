@@ -48,7 +48,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
         // Afspil video
-        // Afspil video
         video.currentTime = 0;
         const cta = document.querySelector('.video-overlay-cta');
         if (cta) cta.classList.remove('show'); // Skjul ved start
