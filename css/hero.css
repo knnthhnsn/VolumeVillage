@@ -4,6 +4,10 @@
     position: relative;
     height: 110vh;
     /* større hero, så man ser farveskiftet længere */
+    /*
+       Overflow: hidden er vigtig her, fordi vi har biler der kører udenfor skærmen.
+       Uden denne ville siden få en vandret scrollbar, hvilket vi ikke ønsker.
+    */
     overflow: hidden;
     background: rgb(var(--hero-r), var(--hero-g), var(--hero-b));
     color: #ffffff;
@@ -17,12 +21,18 @@
 
 
 
-/* indre layout: tekst + lag */
+/* indre layout: tekst + layers */
 .vv-hero-bridge__inner {
     position: relative;
     width: 100%;
     height: 100%;
     padding: 9rem 8vw 4rem;
+    /* 
+       Her bruger vi blandede enheder:
+       9rem i toppen (relativt til font-størrelse).
+       8vw i siderne (8% af skærmens bredde) - dette gør at paddingen vokser/skrumper med vinduet.
+       4rem i bunden.
+    */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -39,6 +49,12 @@
     font-family: "Silver Forte Grunge", sans-serif;
     font-weight: 400;
     font-size: clamp(1.8rem, 6vw, 3rem);
+    /* 
+       clamp() er en smart funktion der sætter grænser:
+       Minimum: 1.8rem (så teksten aldrig bliver ulæseligt lille).
+       Ideelt: 6vw (skalerer med skærmbredden).
+       Maksimum: 3rem (så den ikke eksploderer på kæmpe skærme).
+    */
     /* Øget minimum for læsbarhed, men stadig skalerbar */
     line-height: 1.02;
     letter-spacing: 0.04em;
@@ -77,6 +93,11 @@
     display: inline-block;
     padding: 0.75rem 1.6rem;
     border-radius: 999px;
+    /* 
+       Når vi sætter border-radius til et meget højt tal (som 999px),
+       laver browseren automatisk "pille-formen" (helt runde ender),
+       uanset hvor høj knappen er.
+    */
     background-color: #111111;
     color: #ffffff;
     text-decoration: none;
@@ -85,6 +106,16 @@
     letter-spacing: 0.06em;
     text-transform: uppercase;
 }
+
+/* 
+   Z-Index Lagkage (Forklaring):
+   Vi har bygget scenen op som lag i en lagkage:
+   - z-index 0: Solen (aller bagerst)
+   - z-index 1: Himlen (baggrundsfarve på container)
+   - z-index 2: Broen (foran solen)
+   - z-index 3: Biler (kører ovenpå broen)
+   - z-index 5: Tekst og knapper (aller forrest så de kan læses og klikkes)
+*/
 
 /* Solen */
 .vv-hero-bridge__sun {
@@ -114,8 +145,18 @@
     width: 100vw;
     /* fylder hele bredden */
     height: min(60vh, 380px);
-    /* max-højde, så den ikke æder hele solen på brede skærme */
+    /* 
+       max-højde, så den ikke æder hele solen på brede skærme.
+       min() funktionen vælger den mindste værdi af de to.
+       På små skærme (hvor 60vh < 380px) bruges 60vh.
+       På store skærme bruges max 380px, så broen ikke bliver gigantisk.
+    */
     background-image: url("../assets/images/volume-hero/bro.png");
+    background-repeat: repeat-x;
+    /* 
+       repeat-x gør at broen gentager sig selv vandret i det uendelige.
+       Dette er smart hvis brugeren har en meget bred (ultrawide) skærm.
+    */
     background-repeat: repeat-x;
     /* gentag sidelæns */
     background-position: bottom center;
@@ -169,6 +210,12 @@
     right: -250px;
     /* Start længere ude */
     animation: vv-car-right 9s linear infinite;
+    /* 
+        Linear vs Ease:
+        Vi bruger 'linear' til bilerne i stedet for 'ease'.
+        Biler på en motorvej kører typisk med konstant fart forbi os, de speeder ikke op og ned.
+        Derfor ser en lineær bevægelse mere naturlig ud her.
+    */
     /* Hurtigere: 17s -> 9s */
 }
 
@@ -192,10 +239,16 @@
 @keyframes vv-car-left {
     0% {
         transform: translateX(0);
+        /* Start: Bilen er ved sin udgangsposition (-250px til venstre) */
     }
 
     100% {
         transform: translateX(calc(100vw + 500px));
+        /* 
+           Slut: Vi flytter bilen hele skærmens bredde (100vw) 
+           PLUS 500px ekstra for at være helt sikker på den er kørt ud af billedet.
+           calc() lader os blande procenter, pixels og viewport units.
+        */
         /* Kør HELT igennem + buffer */
     }
 }

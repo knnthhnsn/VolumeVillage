@@ -1,17 +1,27 @@
-/* Sliders & Kort Stilarter */
-
 /* Event Slider */
 .events-section {
     overflow: hidden;
     padding: 100px 0;
+    /* 
+       Padding på 100px i top og bund giver luft omkring indholdet.
+       0 i siderne betyder at indholdet går helt ud til kanten (medmindre andet stopper det).
+    */
     background-color: var(--bg-dark);
     /* Brug bg-dark som base */
     position: relative;
     z-index: 2;
-    /* Kontekst for overlay og sikring mod sol */
+    /* 
+       z-index: 2 sikrer at denne sektion ligger 'højere' end elementer med z-index 1.
+       Det er vigtigt for at overlay og baggrundsbilleder ikke dækker for teksten her.
+    */
 }
 
 /* Grunge Baggrundslag (50% Opacitet) */
+/* 
+   Vi bruger en pseudo-element (::before) til at lægge en tekstur ("grunge-grid-baggrund") 'bagved' indholdet.
+   Linear-gradient bruges til at mørkne billedet lidt, så teksten foran bliver mere læsbar.
+   Opacity på 0.5 sikrer at teksturen er synlig, men ikke dominerende.
+*/
 .events-section::before {
     content: '';
     position: absolute;
@@ -72,6 +82,10 @@
 .slider-container,
 .gallery-slider-wrapper {
     position: relative;
+    /* 
+       position: relative her er nødvendigt for at vi kan bruge z-index.
+       Uden 'position' (hvis den bare var static) ville z-index blive ignoreret.
+    */
     width: 100%;
     z-index: 1;
     /* Sikre at sliders er over overlay */
@@ -82,6 +96,10 @@
 .slider-track {
     display: flex;
     gap: 30px;
+    /* 
+       overflow-x: auto tillader vandret scroll hvis indholdet er for bredt.
+       Dette er essentiel for slider-funktionen på mindre skærme.
+    */
     overflow-x: auto;
     /* Smart polstring for at justere med gitter men scrolle fuld bredde */
     padding: 40px var(--gutter) 20px 40px;
@@ -90,10 +108,17 @@
     /* Mere top polstring (40px) for at håndtere hover løft */
     /* Tilføj top polstring for klistermærker */
     padding-bottom: 20px;
-    /* Scroll snap */
+    /* 
+       Scroll Snap (mandatory):
+       Tvinger browseren til at 'smække' (snap) til nærmeste kort når man slipper scroll.
+       Dette giver en app-agtig fornemmelse og sikrer at kortene altid står pænt.
+    */
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
-    /* Skjul rullebar for renere look */
+    /* 
+       Skjul rullebar:
+       Vi skjuler den grimme standard scrollbar for et renere design (scrollbar-width: none for Firefox).
+    */
     scrollbar-width: none;
     -ms-overflow-style: none;
 }
@@ -111,12 +136,25 @@
     min-width: 300px;
     width: 300px;
     margin-left: 15px;
-    /* Ekstra buffer */
+    /* 
+       flex-shrink: 0 er kritisk her!
+       Det forhindrer flexbox i at mase kortene sammen.
+       Uden denne ville de blive presset flade for at være indenfor containeren.
+    */
     flex-shrink: 0;
     background: #1a1a1a;
     transition: transform 0.3s ease, border-color 0.3s ease;
+    /* 
+       Transition fortæller browseren at ændringer i 'transform' (bevægelse)
+       og 'border-color' (kantfarve) skal ske glidende over 0.3 sekunder.
+       'ease' gør at bevægelsen starter langsomt, speeder op, og bremser ned igen.
+    */
     scroll-snap-align: start;
     box-shadow: 5px 5px 0px var(--accent-orange);
+    /* 
+       En hård skygge uden 'blur' (de 0px som tredje værdi) giver et retro/tegneserie look.
+       Den er offset med 5px både vandret og lodret.
+    */
     position: relative;
     overflow: visible;
     border: 2px solid transparent;
@@ -139,6 +177,11 @@
     position: relative;
     height: 200px;
     overflow: hidden;
+    /* 
+       overflow: hidden er super vigtigt her!
+       Når billedet indeni zoomer ind (ved hover), vil det blive større end rammen.
+       Med overflow: hidden klippes det der stikker ud af, så designet ikke går i stykker.
+    */
 }
 
 .card-image-wrapper img {
@@ -154,6 +197,11 @@
 
 .date-badge {
     position: absolute;
+    /* 
+       position: absolute tager elementet ud af det normale flow.
+       Vi placerer det præcist i forhold til nærmeste forælder der har 'position: relative' (her .event-card).
+       Top: -20px og Left: -20px trækker det lidt ud over kanten, så det sidder som et klistermærke.
+    */
     top: -20px;
     left: -20px;
     background-image: url('../assets/images/ui/dato-sticker.webp');
@@ -299,6 +347,10 @@
     background-color: var(--accent-orange);
     color: var(--text-white);
     transform: scale(1.1);
+    /* 
+       scale(1.1) gør knappen 10% større.
+       Sammen med transition på .slider-btn giver det en lækker "pop" effekt når man holder musen over.
+    */
 }
 
 .slider-btn.random-btn {
