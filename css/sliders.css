@@ -171,7 +171,6 @@
     justify-content: center;
     font-size: 0.8rem;
     line-height: 1;
-    line-height: 1;
     text-align: center;
     z-index: 10;
 }
@@ -236,7 +235,6 @@
 .gallery-track {
     display: flex;
     gap: 20px;
-    overflow-x: auto;
     overflow-x: auto;
     padding: 10px var(--gutter) 10px var(--gutter);
     scroll-snap-type: x mandatory;

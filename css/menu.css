@@ -1,20 +1,3 @@
-/* Font definitioner */
-@font-face {
-    font-family: "Silver Forte Grunge";
-    src: url("../assets/fonts/Silver Forte GrungeDEMO.ttf") format("truetype");
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "Simple Grunge";
-    src: url("../assets/fonts/Simple Grunge.otf") format("opentype");
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
-
 /* Navigations indpakning */
 
 .bold-nav-full__logo img {
