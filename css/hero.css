@@ -17,7 +17,7 @@
 
 
 
-/* indre layout: tekst + layers */
+/* indre layout: tekst + lag */
 .vv-hero-bridge__inner {
     position: relative;
     width: 100%;
@@ -172,7 +172,7 @@
     /* Hurtigere: 17s -> 9s */
 }
 
-/* Left → Right delays (justeret lidt til hurtigere flow) */
+/* Venstre → Højre forsinkelser (justeret lidt til hurtigere flow) */
 .vv-hero-bridge__car--left:nth-of-type(1) {
     animation-delay: 0s;
 }
@@ -200,7 +200,7 @@
     }
 }
 
-/* Right → Left delays */
+/* Højre → Venstre forsinkelser */
 .vv-hero-bridge__car--right:nth-of-type(1) {
     animation-delay: 1s;
 }
