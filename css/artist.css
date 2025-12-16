@@ -8,12 +8,12 @@
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 2000;
+    z-index: 100;
 }
 
 .artist-header .menu-toggle {
     position: relative;
-    z-index: 2001;
+    z-index: 101;
 }
 
 .artist-header .header-content {
@@ -87,7 +87,7 @@
     grid-template-columns: 1fr 1fr;
     gap: 0;
     /* Tæt mellemrum for "kort" look */
-    background-color: #f0f0f0;
+    background-color: var(--text-white);
     /* Papir-agtig baggrund */
     box-shadow: 10px 10px 0px var(--bg-dark);
 }
@@ -109,8 +109,8 @@
 .hero-info-col {
     padding: 40px;
     background-image: url('../assets/images/textures/artist_tekstur.webp');
-    background-color: #e0e0e0;
-    color: #121212;
+    background-color: var(--bg-light);
+    color: var(--text-black);
     /* Mørk tekst på lys baggrund */
     display: flex;
     flex-direction: column;
@@ -132,7 +132,7 @@
     font-size: 1rem;
     margin-bottom: 20px;
     line-height: 1.6;
-    color: #333;
+    color: var(--text-black);
     font-weight: 500;
 }
 
@@ -143,8 +143,8 @@
 }
 
 .genre-tag {
-    background: #121212;
-    color: #fff;
+    background: var(--text-black);
+    color: var(--text-white);
     padding: 5px 12px;
     font-family: var(--font-heading);
     text-transform: uppercase;
@@ -169,7 +169,7 @@
     background-image: url('../assets/images/textures/tekstur_3.webp');
     background-size: cover;
     background-position: center;
-    color: #121212;
+    color: var(--text-black);
     position: relative;
 }
 
@@ -198,7 +198,7 @@
 .timeline-row {
     display: grid;
     grid-template-columns: 100px 1fr 150px;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid var(--bg-light);
     padding: 20px 0;
     align-items: center;
 }
@@ -230,9 +230,9 @@
 .program-content {
     display: none;
     padding: 20px;
-    background-color: rgba(255, 85, 0, 0.2);
+    background-color: color-mix(in srgb, var(--accent-orange), transparent 80%);
     color: var(--text-black);
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid var(--bg-light);
     font-size: 0.9rem;
     line-height: 1.5;
 }
@@ -245,7 +245,7 @@
 
 .buy-btn-small {
     background: var(--accent-orange);
-    color: #fff;
+    color: var(--text-white);
     padding: 8px 16px;
     font-family: var(--font-heading);
     font-size: 0.9rem;
@@ -256,7 +256,7 @@
 }
 
 .buy-btn-small:hover {
-    background: #000;
+    background: var(--text-black);
 }
 
 
@@ -287,12 +287,12 @@
 /* Tidligere Shows Sektion */
 .earlier-shows-section {
     padding: 100px 0;
-    background-color: #f5f5f5;
+    background-color: var(--text-white);
     background-image: url('../assets/images/textures/tekstur_3.webp');
     background-size: cover;
     background-position: center;
     /* Lys igen */
-    color: #121212;
+    color: var(--text-black);
 }
 
 .earlier-shows-title {
@@ -345,7 +345,7 @@
     background-image: url('../assets/images/textures/tekstur_1.jpg');
     background-size: cover;
     background-position: center;
-    color: #fff;
+    color: var(--text-white);
 }
 
 .more-info-subsection {
@@ -365,7 +365,7 @@
 }
 
 .accordion-item {
-    border-bottom: 1px solid #444;
+    border-bottom: 1px solid var(--bg-dark);
     padding: 20px 0;
 }
 
@@ -381,7 +381,7 @@
 }
 
 .accordion-header:hover {
-    color: #fff;
+    color: var(--text-white);
 }
 
 .accordion-content {
@@ -392,7 +392,7 @@
     margin-top: 10px;
     font-family: var(--font-body);
     font-size: 0.95rem;
-    color: #ccc;
+    color: var(--bg-light);
 }
 
 .accordion-content.active {
@@ -456,4 +456,60 @@
         margin-left: 0;
         margin-bottom: 10px;
     }
+}
+
+
+
+.spotify-embed-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 4px;
+}
+
+.earlier-shows-subtitle {
+    text-align: center;
+    margin-top: -30px;
+    margin-bottom: 40px;
+    font-family: var(--font-heading);
+    text-transform: uppercase;
+}
+
+.show-gallery-img {
+    max-height: 400px;
+    object-fit: cover;
+    width: 100%;
+}
+
+.show-info-title {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.faq-subtitle {
+    margin-bottom: 30px;
+    color: var(--text-grey-light);
+}
+
+.more-info-title {
+    font-size: 2rem;
+}
+
+.more-info-text {
+    color: var(--text-grey-light);
+}
+
+.more-info-btn {
+    margin-top: 20px;
+}
+
+
+.artist-intro {
+    padding-top: 150px;
+}
+
+.late-night-filter {
+    filter: hue-rotate(240deg) contrast(1.2);
 }

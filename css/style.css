@@ -184,3 +184,40 @@ img {
         font-size: 0.9rem;
     }
 }
+
+/* Lenis Smooth Scroll */
+html.lenis {
+    height: auto;
+}
+
+.lenis.lenis-smooth {
+    scroll-behavior: auto;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+}
+
+
+/* Helper classes for index.html inline styles */
+.gallery-slider-wrapper {
+    position: relative;
+}
+
+.video-overlay-cta {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    text-align: center;
+}
+
+.event-card {
+    text-decoration: none;
+    color: inherit;
+}
+
+.late-night-filter {
+    filter: hue-rotate(240deg) contrast(1.2);
+}

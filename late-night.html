@@ -24,23 +24,7 @@
     <link rel="stylesheet" href="css/artist.css">
     <link rel="stylesheet" href="css/footer.css">
 
-    <style>
-        html.lenis {
-            height: auto;
-        }
 
-        .lenis.lenis-smooth {
-            scroll-behavior: auto;
-        }
-
-        .lenis.lenis-smooth [data-lenis-prevent] {
-            overscroll-behavior: contain;
-        }
-
-        .lenis.lenis-stopped {
-            overflow: hidden;
-        }
-    </style>
 </head>
 
 <body>
@@ -159,12 +143,11 @@
 
     <main>
         <!-- Tidligere Hero Sektion nu som indhold -->
-        <section class="section artist-intro" style="padding-top: 150px;">
+        <section class="section artist-intro">
             <div class="container">
                 <div class="hero-grid">
                     <div class="hero-image-col">
-                        <img src="assets/images/kunstner/singer-bg.jpg" alt="Late Night"
-                            style="filter: hue-rotate(240deg) contrast(1.2);">
+                        <img src="assets/images/kunstner/singer-bg.jpg" alt="Late Night" class="late-night-filter">
                     </div>
                     <div class="hero-info-col">
                         <h2 class="artist-title-large">LATE NIGHT</h2>
@@ -254,18 +237,15 @@
         <section class="earlier-shows-section">
             <div class="container">
                 <h2 class="earlier-shows-title">Tidligere shows</h2>
-                <p
-                    style="text-align: center; margin-top: -30px; margin-bottom: 40px; font-family: var(--font-heading); text-transform: uppercase;">
+                <p class="earlier-shows-subtitle">
                     Stemningsbilleder</p>
 
                 <div class="show-display">
                     <div class="show-image">
-                        <img src="assets/images/galleri/DSC00628.jpg" alt="Late Night Rave"
-                            style="max-height: 400px; object-fit: cover; width: 100%;">
+                        <img src="assets/images/galleri/DSC00628.jpg" alt="Late Night Rave" class="show-gallery-img">
                     </div>
                     <div class="show-info">
-                        <h3
-                            style="font-family: var(--font-heading); font-size: 2rem; text-transform: uppercase; margin-bottom: 10px;">
+                        <h3 class="show-info-title">
                             Rave Culture</h3>
                         <p>Billeder fra vores seneste event "Warehouse 99" hvor bassen kunne mærkes i hele kroppen.</p>
                     </div>
@@ -277,7 +257,7 @@
         <section class="faq-section">
             <div class="container">
                 <h2 class="faq-title">FAQ</h2>
-                <p style="margin-bottom: 30px; color: #aaa;">Information om eventet</p>
+                <p class="faq-subtitle">Information om eventet</p>
 
                 <div class="accordion">
                     <!-- Fra Bladee -->
@@ -365,9 +345,9 @@
 
                 <!-- Mere at vide subsection -->
                 <div class="more-info-subsection">
-                    <h2 class="section-title" style="font-size: 2rem;">MERE AT VIDE</h2>
-                    <p style="color: #aaa;">Hold dig opdateret på vores sociale medier</p>
-                    <a href="#" class="btn btn-primary" style="margin-top: 20px;">FØLG OS</a>
+                    <h2 class="section-title more-info-title">MERE AT VIDE</h2>
+                    <p class="more-info-text">Hold dig opdateret på vores sociale medier</p>
+                    <a href="#" class="btn btn-primary more-info-btn">FØLG OS</a>
                 </div>
             </div>
         </section>

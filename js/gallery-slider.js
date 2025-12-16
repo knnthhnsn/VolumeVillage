@@ -1,3 +1,4 @@
+// Vi starter med at vente på at indholdet er indlæst.
 document.addEventListener('DOMContentLoaded', () => {
     const track = document.querySelector('.gallery-track');
     const prevBtn = document.querySelector('.prev-gallery');
@@ -14,13 +15,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const scrollAmount = 420;
 
     nextBtn.addEventListener('click', () => {
+        // `track.querySelector('a')`: Vi leder EFTER et element (her et 'a'-tag) INDE i vores track-element.
+        // Det er smart, fordi vi så kun finder links, der faktisk er en del af slideren.
         const firstItem = track.querySelector('a');
         if (firstItem) {
             /* 
                Dynamisk beregning af bredde.
                I stedet for at gætte på bredden (420px), måler vi det første element direkte (offsetWidth).
+               `offsetWidth` er elementets synlige bredde i pixels, inklusiv padding og borders.
                Vi lægger 20px til for at inkludere mellemrummet (gap) mellem billederne.
-               Dette gør slideren robust, selvom vi ændrer CSS-bredden senere.
             */
             const itemWidth = firstItem.offsetWidth + 20; // bredde + gap
             track.scrollBy({ left: itemWidth, behavior: 'smooth' });

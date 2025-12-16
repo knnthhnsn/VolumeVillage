@@ -1,7 +1,9 @@
+// Vi venter på at HTML'en er klar (DOMContentLoaded)
 document.addEventListener('DOMContentLoaded', () => {
     /* 
-       Element-kald.
-       Vi finder knapper og spor (track) i DOM'en.
+       Element-kald (querySelector).
+       Vi bruger `document.querySelector` til at finde elementer baseret på deres CSS-klasse (f.eks. .slider-track).
+       Det svarer til at sige "Find mig det første element, der har denne klasse".
        Vi tjekker altid om elementerne findes (if !track...), før vi kører koden, for at undgå fejl på sider hvor slideren mangler.
     */
     const track = document.querySelector('.slider-track');
@@ -14,7 +16,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const cardWidth = 330; // Kort bredde (300) + mellemrum (30)
 
+    // Tilføj en "klik-lytter" på næste-knappen.
     nextBtn.addEventListener('click', () => {
+        // `scrollBy` beder elementet om at scrolle et bestemt stykke til venstre eller højre.
+        // `left: cardWidth` betyder "scroll mod højre" (positivt tal).
         track.scrollBy({ left: cardWidth, behavior: 'smooth' });
     });
 
@@ -53,7 +58,6 @@ document.addEventListener('DOMContentLoaded', () => {
             // Visuel fremhævning
             cards.forEach(card => card.style.borderColor = '');
 
-            // Vent lidt før highlight
             // Vent lidt før highlight
             /* 
                Timing af visuel feedback (kant-farve).

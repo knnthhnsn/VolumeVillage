@@ -27,23 +27,7 @@
 
 
     <link rel="stylesheet" href="css/video-scroll.css">
-    <style>
-        html.lenis {
-            height: auto;
-        }
 
-        .lenis.lenis-smooth {
-            scroll-behavior: auto;
-        }
-
-        .lenis.lenis-smooth [data-lenis-prevent] {
-            overscroll-behavior: contain;
-        }
-
-        .lenis.lenis-stopped {
-            overflow: hidden;
-        }
-    </style>
 </head>
 
 <body>
@@ -64,7 +48,7 @@
                 <img src="assets/images/ui/logo.svg" alt="Volume Village logo">
             </a>
 
-            <!-- Default burger (styres af scroll) -->
+            <!-- inaktiv burger (styres af scroll) -->
             <button class="bold-nav-full__hamburger bold-nav-full__hamburger--default" data-navigation-toggle="toggle">
                 <span class="bold-nav-full__hamburger-bar">
                     <span class="bold-nav-full__hamburger-bar-inner"></span>
@@ -247,7 +231,7 @@
                 <!-- Event kort vil blive indsat her eller hardcoded -->
                 <div class="slider-track">
                     <!-- Eksempel Kort 1 -->
-                    <a href="smogmaend.html" class="event-card" style="text-decoration: none; color: inherit;">
+                    <a href="smogmaend.html" class="event-card">
                         <span class="date-badge">TIR<br>06<br>FEB</span>
                         <div class="card-image-wrapper">
                             <img src="assets/images/kunstner/smogmend-event.png" alt="Smøgmænd Event">
@@ -260,11 +244,11 @@
                         </div>
                     </a>
                     <!-- Eksempel Kort 2 (Dupliker for visuel effekt) -->
-                    <a href="late-night.html" class="event-card" style="text-decoration: none; color: inherit;">
+                    <a href="late-night.html" class="event-card">
                         <span class="date-badge">FRE<br>10<br>MAR</span>
                         <div class="card-image-wrapper">
                             <img src="assets/images/kunstner/singer-bg.jpg" alt="Late Night Event"
-                                style="filter: hue-rotate(240deg) contrast(1.2);">
+                                class="late-night-filter">
                         </div>
                         <div class="card-content">
                             <span class="tag">Techno</span>
@@ -274,7 +258,7 @@
                         </div>
                     </a>
                     <!-- BLADEE Kort -->
-                    <a href="bladee.html" class="event-card" style="text-decoration: none; color: inherit;">
+                    <a href="bladee.html" class="event-card">
                         <span class="date-badge">LØR<br>15<br>APR</span>
                         <div class="card-image-wrapper">
                             <img src="assets/images/kunstner/bladee-event.jpg" alt="Bladee Event">
@@ -287,7 +271,7 @@
                         </div>
                     </a>
                     <!-- KIDD Kort -->
-                    <a href="kidd.html" class="event-card" style="text-decoration: none; color: inherit;">
+                    <a href="kidd.html" class="event-card">
                         <span class="date-badge">FRE<br>21<br>APR</span>
                         <div class="card-image-wrapper">
                             <img src="assets/images/kunstner/kidd-event.jpg" alt="Kidd Event">
@@ -300,7 +284,7 @@
                         </div>
                     </a>
                     <!-- Eksempel Kort 1 (Kopi) -->
-                    <a href="smogmaend.html" class="event-card" style="text-decoration: none; color: inherit;">
+                    <a href="smogmaend.html" class="event-card">
                         <span class="date-badge">TIR<br>06<br>FEB</span>
                         <div class="card-image-wrapper">
                             <img src="assets/images/kunstner/smogmend-event.png" alt="Smøgmænd Event">
@@ -313,11 +297,11 @@
                         </div>
                     </a>
                     <!-- Eksempel Kort 2 (Kopi) -->
-                    <a href="late-night.html" class="event-card" style="text-decoration: none; color: inherit;">
+                    <a href="late-night.html" class="event-card">
                         <span class="date-badge">FRE<br>10<br>MAR</span>
                         <div class="card-image-wrapper">
                             <img src="assets/images/kunstner/singer-bg.jpg" alt="Late Night Event"
-                                style="filter: hue-rotate(240deg) contrast(1.2);">
+                                class="late-night-filter">
                         </div>
                         <div class="card-content">
                             <span class="tag">Techno</span>
@@ -327,7 +311,7 @@
                         </div>
                     </a>
                     <!-- BLADEE Kort (Kopi) -->
-                    <a href="bladee.html" class="event-card" style="text-decoration: none; color: inherit;">
+                    <a href="bladee.html" class="event-card">
                         <span class="date-badge">LØR<br>15<br>APR</span>
                         <div class="card-image-wrapper">
                             <img src="assets/images/kunstner/bladee-event.jpg" alt="Bladee Event">
@@ -340,7 +324,7 @@
                         </div>
                     </a>
                     <!-- KIDD Kort (Kopi) -->
-                    <a href="kidd.html" class="event-card" style="text-decoration: none; color: inherit;">
+                    <a href="kidd.html" class="event-card">
                         <span class="date-badge">FRE<br>21<br>APR</span>
                         <div class="card-image-wrapper">
                             <img src="assets/images/kunstner/kidd-event.jpg" alt="Kidd Event">
@@ -366,7 +350,7 @@
             <div class="container">
                 <h2 class="section-title">GALLERI STEMNING OG RAVES</h2>
             </div>
-            <div class="gallery-slider-wrapper" style="position: relative;">
+            <div class="gallery-slider-wrapper">
                 <div class="gallery-slider" id="gallery-slider">
                     <div class="gallery-track">
                         <!-- Pladsholder billeder gentaget for demo -->
@@ -413,8 +397,7 @@
                 <!-- Bruger muted, playsinline, og preload for bedste scroll performance -->
                 <video src="assets/images/video/load-knap.mp4" class="scroll-video" muted playsinline
                     preload="auto"></video>
-                <div class="video-overlay-cta"
-                    style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 10; text-align: center;">
+                <div class="video-overlay-cta">
                     <a href="frivillig.html" class="btn btn-primary">BLIV FRIVILLIG</a>
                 </div>
             </div>
@@ -449,7 +432,6 @@
                 <a href="#"><ion-icon name="logo-facebook"></ion-icon></a>
                 <a href="#"><ion-icon name="logo-instagram"></ion-icon></a>
                 <a href="#"><ion-icon name="logo-twitter"></ion-icon></a>
-                <!-- X logo bruger normalt twitter ikon eller brugerdefineret SVG, bruger twitter for nu som standard -->
                 <a href="#"><ion-icon name="logo-linkedin"></ion-icon></a>
                 <a href="#"><ion-icon name="logo-youtube"></ion-icon></a>
 

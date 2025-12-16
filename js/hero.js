@@ -2,7 +2,12 @@ document.addEventListener("DOMContentLoaded", () => {
     updateHeroUI();
 });
 
+// Vi lytter på sidens scroll-hændelse.
+// Hver gang brugeren scroller én pixel, køres funktionen 'updateHeroUI'.
 window.addEventListener("scroll", updateHeroUI);
+
+// Vi lytter også på 'resize' (hvis brugeren ændrer vinduets størrelse).
+// Dette er vigtigt, fordi højden af hero-sektionen kan ændre sig.
 window.addEventListener("resize", updateHeroUI);
 
 function updateHeroUI() {
@@ -30,43 +35,44 @@ function updateHeroUI() {
     const sun = document.querySelector(".vv-hero-bridge__sun");
     const bridgeOverlay = document.querySelector(".vv-hero-bridge__bridge--overlay");
 
+    // `scrollY` fortæller os, hvor mange pixels vi har scrollet ned fra toppen.
     const scroll = window.scrollY;
     const heroTop = hero.offsetTop;
     const heroH = hero.offsetHeight || window.innerHeight;
 
     /* 
-       Beregn 't' (Normaliseret scroll-progress).
-       Vi dividerer antallet af pixels scrollet med 30% af hero-sektionens højde.
-       Dette giver os et tal, der starter på 0 og stiger, efterhånden som vi scroller.
-       Math.max og Math.min klemmer værdien fast, så den aldrig kommer under 0 eller over 1.
+       Beregn 't' (Tids-faktor / Progress).
+       Dette er matematikken bag animationen.
+       Vi vil gerne have et tal mellem 0 og 1, der fortæller hvor langt vi er i animationen.
+       0 = Starten (helt orange)
+       1 = Slutningen (helt mørk)
     */
     let t = (scroll - heroTop) / (heroH * 0.3);
-    t = Math.max(0, Math.min(1, t)); // Begræns værdi mellem 0 og 1
+
+    // `Math.max(0, ...)` sikrer at tallet ikke bliver mindre end 0.
+    // `Math.min(1, ...)` sikrer at tallet ikke bliver større end 1.
+    // Resultat: 't' holder sig altid pænt indenfor 0.0 til 1.0.
+    t = Math.max(0, Math.min(1, t));
 
     // Baggrundsfarve der fader
     const start = { r: 252, g: 76, b: 2 };
     const end = { r: 4, g: 20, b: 48 };
 
     /*
-       Lineær interpolation (Lerp) af RGB værdier.
-       Vi beregner farven mellem start (orange) og slut (mørkegrå) baseret på 't' (scroll faktor).
-       Dette skaber den flydende overgang fra dag til nat.
-    */
-    /*
-       Interpolér farverne (Lerp - Linear Interpolation).
-       Dette er hjertet af dag/nat-skiftet. Vi tager hvert farve-kanel (Rød, Grøn, Blå)
-       og blander dem proportionelt baseret på vores 't' værdi.
-       Formlen: start + (slut - start) * t betyder "start her, og gå t procent mod slutningen".
+       Farve-blanding (Linear Interpolation).
+       Vi blander start-farven og slut-farven baseret på vores 't'-værdi.
+       Hvis t er 0.5 (halvvejs), får vi en farve lige midt imellem.
+       Formel: start + (forskel * t)
     */
     const R = Math.round(start.r + (end.r - start.r) * t);
     const G = Math.round(start.g + (end.g - start.g) * t);
     const B = Math.round(start.b + (end.b - start.b) * t);
 
     /* 
-       Opdater CSS variablerne (Reaktivitet).
-       Vi injicerer de nye værdier direkte ind i CSS'en (Inline Styles).
-       Fordi vi bruger CSS variables (--hero-r, etc.), opdateres baggrunden øjeblikkeligt
-       uden at browseren skal gentegne hele layoutet. Dette sikrer 60fps animation.
+       Opdatering af CSS Variabler.
+       Vi sender de nye farve-værdier direkte ind i CSS-motoren.
+       CSS-filen bruger `var(--hero-r)`, og her opdaterer vi værdien af den variabel.
+       Det er supersmart, fordi vi styrer designet fra JavaScript!
     */
     hero.style.setProperty("--hero-r", R);
     hero.style.setProperty("--hero-g", G);

@@ -275,3 +275,9 @@
 .artist-intro .section-desc {
     color: var(--text-black);
 }
+
+/* Helper Class for inline styles in HTML */
+.insta-icon-small {
+    margin-right: 8px;
+    vertical-align: middle;
+}

@@ -23,12 +23,17 @@
 
 
 .bold-nav-full {
-    z-index: 9999;
+    z-index: 100;
+    /* Sørger for at menuen ligger OVENPÅ alt andet indhold (højt tal = øverst) */
     pointer-events: none;
+    /* Menuen skal ikke kunne klikkes på, når den er usynlig/lukket */
     position: fixed;
+    /* Fastlåst position på skærmen, selvom man scroller */
     inset: 0;
+    /* Genvej for top: 0, right: 0, bottom: 0, left: 0 (fylder hele skærmen) */
 }
 
+/* Når menuen er 'active', skal man kunne klikke på den igen */
 [data-navigation-status="active"].bold-nav-full {
     pointer-events: auto;
 }
@@ -39,6 +44,7 @@
     filter: brightness(0);
     /* 0 = helt sort, 1 = original farve */
     transition: filter 0.25s linear;
+    /* Gør skiftet blødt: det tager 0.25 sekunder at ændre 'filter' */
 }
 
 
@@ -130,9 +136,13 @@
     height: 0.125em;
     /* tykkelse på stregen */
     transform: translate(0, 0) rotate(0.001deg);
+    /* Start position og rotation */
+    /* Transition styrer animationen: */
     transition:
         transform 0.5s cubic-bezier(.7, 0, .3, 1),
+        /* 'cubic-bezier' giver en unik, ikke-lineær hastighed */
         opacity 0.3s ease;
+    /* 'ease' er en standard blød animation */
 }
 
 /* Det indre lag, som vi animerer (EQ-effekt) */
@@ -217,6 +227,7 @@
 }
 
 
+/* :nth-child(1) vælger det første 'barn' i rækken (den øverste streg) */
 .bold-nav-full__hamburger .bold-nav-full__hamburger-bar:nth-child(1) {
     transform: translate(0, -.45em) scale(1, 1) rotate(0.001deg);
 }

@@ -1,14 +1,23 @@
+// "DOMContentLoaded" betyder: Vent til hele HTML-siden er bygget færdig.
+// "() =>" er en Arrow Function (en kort måde at skrive en funktion på).
 document.addEventListener('DOMContentLoaded', () => {
     const section = document.querySelector('.video-scroll-section');
     const video = document.querySelector('.scroll-video');
 
     if (!section || !video) return;
 
+    // "let" bruges til variabler, der kan ændre sig senere (modsat "const").
     let hasPlayed = false;
 
+    /* 
+       IntersectionObserver (Krydsnings-observatør).
+       Dette er en smart "vagt", der holder øje med, om et element (sektionen) 
+       kommer ind i synsfeltet (skærmen). 
+       Vi slipper for konstant at måle scroll-positionen, hvilket gør siden hurtigere.
+    */
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-            // Når sektionen dækker det meste af skærmen (tærskel 0.5 eller lignende)
+            // "entry.isIntersecting" er SAND (true), når elementet kan ses på skærmen.
             /* 
                Opdagelse (Detection).
                IntersectionObserver holder øje med elementer. 'isIntersecting' er sand, når sektionen er synlig.
@@ -18,10 +27,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 lockAndPlay();
             }
         });
-    }, { threshold: 0.2 }); // Udløs tidligt
+    }, { threshold: 0.2 }); // "Threshold: 0.2" betyder: Reagér når 20% af elementet er synligt.
 
+    // Fortæl vores observatør, at den skal holde øje med 'section'-elementet.
     observer.observe(section);
 
+    // Definition af vores egen hjælpe-funktion.
+    // Vi samler koden her, så vi kan kalde den oppe fra observeren, når tiden er inde.
     function lockAndPlay() {
         // Udløs ikke hvis menuen allerede er åben
         const nav = document.querySelector('[data-navigation-status]');

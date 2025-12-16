@@ -24,23 +24,7 @@
     <link rel="stylesheet" href="css/artist.css">
     <link rel="stylesheet" href="css/footer.css">
 
-    <style>
-        html.lenis {
-            height: auto;
-        }
 
-        .lenis.lenis-smooth {
-            scroll-behavior: auto;
-        }
-
-        .lenis.lenis-smooth [data-lenis-prevent] {
-            overscroll-behavior: contain;
-        }
-
-        .lenis.lenis-stopped {
-            overflow: hidden;
-        }
-    </style>
 </head>
 
 <body>
@@ -160,7 +144,7 @@
     <main>
 
         <!-- Tidligere Hero Sektion nu som indhold -->
-        <section class="section artist-intro" style="padding-top: 150px;">
+        <section class="section artist-intro">
             <div class="container">
                 <div class="hero-grid">
                     <div class="hero-image-col">
@@ -182,7 +166,7 @@
 
                         <div class="music-player-placeholder">
                             <img src="assets/images/kunstner/kidd-spotify-embed.jpg" alt="Kidd Spotify"
-                                style="width: 100%; height: auto; display: block; border-radius: 4px;">
+                                class="spotify-embed-img">
                         </div>
                     </div>
                 </div>
@@ -257,18 +241,15 @@
         <section class="earlier-shows-section">
             <div class="container">
                 <h2 class="earlier-shows-title">Tidligere shows</h2>
-                <p
-                    style="text-align: center; margin-top: -30px; margin-bottom: 40px; font-family: var(--font-heading); text-transform: uppercase;">
+                <p class="earlier-shows-subtitle">
                     Kidd gennem tiden</p>
 
                 <div class="show-display">
                     <div class="show-image">
-                        <img src="assets/images/kunstner/kidd-event.jpg" alt="Kidd Live"
-                            style="max-height: 400px; object-fit: cover; width: 100%;">
+                        <img src="assets/images/kunstner/kidd-event.jpg" alt="Kidd Live" class="show-gallery-img">
                     </div>
                     <div class="show-info">
-                        <h3
-                            style="font-family: var(--font-heading); font-size: 2rem; text-transform: uppercase; margin-bottom: 10px;">
+                        <h3 class="show-info-title">
                             Ikonisk Energi</h3>
                         <p>Kidd er kendt for at give alt han har på scenen. Se videoer fra hans legendariske optræden på
                             Roskilde Festival.</p>
@@ -281,7 +262,7 @@
         <section class="faq-section">
             <div class="container">
                 <h2 class="faq-title">FAQ</h2>
-                <p style="margin-bottom: 30px; color: #aaa;">Svar på dine spørgsmål</p>
+                <p class="faq-subtitle">Svar på dine spørgsmål</p>
 
                 <div class="accordion">
                     <!-- Fra Bladee -->
@@ -369,9 +350,9 @@
 
                 <!-- Mere at vide subsection -->
                 <div class="more-info-subsection">
-                    <h2 class="section-title" style="font-size: 2rem;">MERE AT VIDE</h2>
-                    <p style="color: #aaa;">Hold dig opdateret på vores sociale medier</p>
-                    <a href="#" class="btn btn-primary" style="margin-top: 20px;">FØLG OS</a>
+                    <h2 class="section-title more-info-title">MERE AT VIDE</h2>
+                    <p class="more-info-text">Hold dig opdateret på vores sociale medier</p>
+                    <a href="#" class="btn btn-primary more-info-btn">FØLG OS</a>
                 </div>
             </div>
         </section>

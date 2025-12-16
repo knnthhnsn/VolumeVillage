@@ -1,8 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
     /* 
        Initialiser Lenis Smooth Scroll.
-       Lenis er et tredjeparts-bibliotek, der normaliserer scrolling på tværs af browsere 
-       og giver en moderne, "træghed" (inertia) fornemmelse.
+       Lenis er et værktøj (bibliotek) vi har hentet udefra.
+       Det gør, at når du scroller på siden, føles det blødt og lækkert ("smooth"), 
+       i stedet for den normale "hakkede" scroll.
     */
     // Initialiser Lenis Smooth Scroll
     if (typeof Lenis !== 'undefined') {
@@ -16,8 +17,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
         /* 
            Request Animation Frame (RAF) Loop.
-           Lenis kræver, at vi kalder deres 'raf' metode i hver eneste frame
-           for at beregne den glatte scrolling.
+           For at Lenis kan virke, skal den opdateres hele tiden ca. 60 gange i sekundet (hver gang skærmen tegnes).
+           `requestAnimationFrame` fortæller browseren: "Næste gang du tegner skærmen, så kør denne funktion (raf)".
+           Og inde i funktionen kalder vi `requestAnimationFrame` igen, så det kører i ring (loop).
         */
         function raf(time) {
             window.lenis.raf(time);
